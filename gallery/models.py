@@ -1,6 +1,4 @@
-# Create your models here.
 import os
-from pathlib import Path
 
 from django.db import models
 from django.conf import settings
