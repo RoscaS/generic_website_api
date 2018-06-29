@@ -16,6 +16,7 @@ def api_root(request, format=None):
 class GalleryViewSet(viewsets.ModelViewSet):
     queryset = Gallery.objects.all()
     serializer_class = GallerySerializer
+    lookup_field = 'slug'
 
 
 class ImageViewSet(viewsets.ModelViewSet):

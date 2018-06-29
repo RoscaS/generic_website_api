@@ -9,6 +9,7 @@ from django.dispatch.dispatcher import receiver
 
 
 class Gallery(models.Model):
+    slug = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=200, null=False)
     description = models.TextField(max_length=1000, null=True)
     limit = models.IntegerField(default=8)
@@ -32,7 +33,10 @@ class Gallery(models.Model):
         galleries = [i for i in os.listdir(media)]
         for gallery in galleries:
             print(gallery)
-            g = Gallery.objects.create(name=gallery)
+            g = Gallery.objects.create(
+                slug=gallery,
+                name=gallery
+            )
             images = [i for i in os.listdir(f'{media}/{gallery}')]
             print(f'\t{images}\n')
             for image in images:
