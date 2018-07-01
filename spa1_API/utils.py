@@ -2,7 +2,7 @@ import os
 
 from django.conf import settings
 from apps.gallery.models import Gallery, Image
-from apps.main.models import Presentation
+from apps.main.models import Presentation, Hero
 
 
 class Tools(object):
@@ -10,7 +10,7 @@ class Tools(object):
     def build(cls):
         GenerateFake.gallery()
         GenerateFake.presentation()
-
+        Hero.objects.create()
 
 class GenerateFake(object):
 
@@ -38,4 +38,15 @@ class GenerateFake(object):
                 Image.objects.create(
                     image=f'galleries/{gallery}/{image}',
                     gallery=g)
+
+        descriptions = ['Articles', 'Gallerie', 'Contact']
+        parallax = Image.objects.filter(gallery__name='parallax')
+        for c, i in enumerate(parallax):
+            i.description = descriptions[c]
+            i.save()
+
+
+        # Image.objects.get(id=1).description = 'Articles'.upper()
+        # Image.objects.get(id=2).description = 'Gallerie'.upper()
+        # Image.objects.get(id=3).description = 'Contact'.upper()
 
