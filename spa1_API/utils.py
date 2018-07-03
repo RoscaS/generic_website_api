@@ -1,16 +1,28 @@
 import os
 
+import forgery_py
+
 from django.conf import settings
 from apps.gallery.models import Gallery, Image
-from apps.main.models import Presentation, Hero
+from apps.main.models import PresentationSection, HeroSection, GallerySection, \
+    ContactSection, MainOptions
+
+
+def sentences(n):
+    return forgery_py.lorem_ipsum.sentences(n).capitalize()
 
 
 class Tools(object):
     @classmethod
     def build(cls):
+        MainOptions.objects.create()
+
         GenerateFake.gallery()
         GenerateFake.presentation()
-        Hero.objects.create()
+        HeroSection.objects.create()
+        GallerySection.objects.create()
+        ContactSection.objects.create()
+
 
 class GenerateFake(object):
 
@@ -20,7 +32,7 @@ class GenerateFake(object):
             image='galleries/misc/presentation.jpg',
             gallery=Gallery.objects.get(name='misc')
         )
-        Presentation.objects.create(image=image)
+        PresentationSection.objects.create(image=image)
 
     @classmethod
     def gallery(cls):
@@ -37,16 +49,16 @@ class GenerateFake(object):
             for image in images:
                 Image.objects.create(
                     image=f'galleries/{gallery}/{image}',
-                    gallery=g)
+                    description=sentences(1),
+                    gallery=g
+                )
 
-        descriptions = ['Articles', 'Gallerie', 'Contact']
+        descriptions = ['Articles', 'Galerie', 'Contact']
         parallax = Image.objects.filter(gallery__name='parallax')
         for c, i in enumerate(parallax):
             i.description = descriptions[c]
             i.save()
 
-
         # Image.objects.get(id=1).description = 'Articles'.upper()
         # Image.objects.get(id=2).description = 'Gallerie'.upper()
         # Image.objects.get(id=3).description = 'Contact'.upper()
-

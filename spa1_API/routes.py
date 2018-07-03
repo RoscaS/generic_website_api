@@ -4,14 +4,11 @@ from apps.main import urls as main_urls
 
 
 def build_routes():
-
     routeLists = [
         gallery_urls.routeList,
         main_urls.routeList,
     ]
-
     router = routers.DefaultRouter()
-
     for routeList in routeLists:
         for route in routeList:
             router.register(route[0], route[1])
