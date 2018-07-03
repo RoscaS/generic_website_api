@@ -1,4 +1,6 @@
 import os
+from decouple import config
+
 from .data import WEBSITE_DATA
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -7,7 +9,8 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1!(*8#=8-#8h)$$%%dl4$ae3mjj57tgu==ya+bz_j7-e$mij7h'
+SECRET_KEY = config('SECRET_KEY')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -28,9 +31,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'django_extensions',
     'corsheaders',
-
     'rest_framework',
 
     'apps.gallery',
@@ -112,9 +115,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Zurich'
 
 USE_I18N = True
 
@@ -127,7 +130,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Email
+
+EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_HOST = config('EMAIL_HOST', default='smtp.mailgun.org')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='postmaster@mg.jrosk.pw')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+
+DEFAULT_FROM_EMAIL = f"{WEBSITE_DATA['NAME'].strip('.')} <noreply@jrosk.pw>"
+EMAIL_SUBJECT_PREFIX = f"{WEBSITE_DATA['PROJECT_NAME']}: "
+EMAIL_SEND_TO = ['jrosk.ad@gmail.com']

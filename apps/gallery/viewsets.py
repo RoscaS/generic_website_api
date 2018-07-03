@@ -6,6 +6,7 @@ class GalleryViewSet(viewsets.ModelViewSet):
     queryset = Gallery.objects.all()
     serializer_class = GallerySerializer
     lookup_field = 'slug'
+    http_method_names = ['get']
 
 
 class ImageViewSet(viewsets.ModelViewSet):

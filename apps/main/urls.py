@@ -6,4 +6,5 @@ routeList = (
     (r'gallery', viewsets.GalleryViewSet),
     (r'contact', viewsets.ContactViewSet),
     (r'options', viewsets.MainOptionsViewSet),
+    (r'message', viewsets.MessageViewSet),
 )

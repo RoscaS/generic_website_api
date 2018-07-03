@@ -2,6 +2,8 @@ import forgery_py
 
 from django.db import models
 from django.conf import settings
+from django.core.mail import send_mail
+
 from apps.gallery.models import Image
 
 DATA = settings.WEBSITE_DATA
@@ -45,8 +47,8 @@ class ContactSection(models.Model):
     header = models.CharField(max_length=30, null=False, default='Contact')
     title = models.CharField(max_length=200, null=False, default='Où nous trouver')
     sub_title = models.TextField(max_length=200, null=False, default="N'hésitez pas à nous contacter...")
-    sub_title2 = models.TextField(max_length=200, null=False, default='...nous laisser un message...')
-    sub_title3 = models.TextField(max_length=200, null=False, default='...ou passez directement nous voir.')
+    sub_title2 = models.TextField(max_length=200, null=False, default='... en nous laissant un message...')
+    sub_title3 = models.TextField(max_length=200, null=False, default='... ou en passant directement nous voir.')
 
 
 class MainOptions(models.Model):
@@ -58,7 +60,7 @@ class MainOptions(models.Model):
     city = models.CharField(max_length=30, null=True, default=DATA['VILLE'] or '', blank=True)
     post_code = models.CharField(max_length=4, null=True, default=DATA['CODE_POSTAL'] or '', blank=True)
     phone = models.CharField(max_length=30, null=True, default=DATA['TELEPHONE'] or '', blank=True)
-    mail = models.CharField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
+    mail = models.EmailField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
     facebook = models.CharField(max_length=1000, null=True, default=DATA['FACEBOOK'] or '', blank=True)
     tripadvisor = models.CharField(max_length=1000, null=True, default=DATA['TRIPADVISOR'] or '', blank=True)
     google = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE'] or '', blank=True)
@@ -68,5 +70,12 @@ class MainOptions(models.Model):
     snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
 
 
-class Messages(models.Model):
-    name = models.CharField(max_length=15, null=False)
+class Message(models.Model):
+    name = models.CharField(max_length=30, null=False)
+    email = models.EmailField(max_length=30, null=False)
+    message = models.TextField(max_length=3000, null=False)
+    date = models.DateTimeField(auto_now_add=True)
+    is_new = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['-date']

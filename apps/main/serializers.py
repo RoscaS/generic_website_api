@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions
+    ContactSection, MainOptions, Message
 from apps.gallery.serializers import ImageSerializer
 
 
@@ -38,3 +38,10 @@ class MainOptionsSerializer(serializers.ModelSerializer):
         fields = ('name', 'name_add', 'description', 'oppening', 'adress', 'city',
                   'post_code', 'phone', 'mail', 'facebook', 'tripadvisor',
                   'google', 'twitter', 'instagram', 'linkedin', 'snapchat',)
+
+
+class MessageSerializer(serializers.ModelSerializer):
+    date = serializers.ReadOnlyField()
+    class Meta:
+        model = Message
+        fields = ('name', 'email', 'message', 'date')
