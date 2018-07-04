@@ -1,7 +1,23 @@
 from rest_framework import serializers
 from .models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions, Message
+    ContactSection, MainOptions, Message, ReviewSection
 from apps.gallery.serializers import ImageSerializer
+
+
+class MainOptionsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MainOptions
+        fields = ('name', 'name_add', 'description', 'oppening', 'adress', 'city',
+            'post_code', 'phone', 'mail', 'facebook', 'tripadvisor',
+            'google', 'twitter', 'instagram', 'linkedin', 'snapchat')
+
+
+class MessageSerializer(serializers.ModelSerializer):
+    date = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Message
+        fields = ('name', 'email', 'message', 'date')
 
 
 class PresentationSerializer(serializers.ModelSerializer):
@@ -32,16 +48,8 @@ class ContactSerializer(serializers.ModelSerializer):
         fields = ('title', 'sub_title', 'sub_title2', 'sub_title3')
 
 
-class MainOptionsSerializer(serializers.ModelSerializer):
+class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MainOptions
-        fields = ('name', 'name_add', 'description', 'oppening', 'adress', 'city',
-                  'post_code', 'phone', 'mail', 'facebook', 'tripadvisor',
-                  'google', 'twitter', 'instagram', 'linkedin', 'snapchat',)
-
-
-class MessageSerializer(serializers.ModelSerializer):
-    date = serializers.ReadOnlyField()
-    class Meta:
-        model = Message
-        fields = ('name', 'email', 'message', 'date')
+        model = ReviewSection
+        fields = ('title', 'sub_title', 'g_api', 'g_place_id',
+                  'g_review_all_url', 'g_review_new_url', 'reviews')

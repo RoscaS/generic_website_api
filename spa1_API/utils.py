@@ -5,7 +5,7 @@ import forgery_py
 from django.conf import settings
 from apps.gallery.models import Gallery, Image
 from apps.main.models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions
+    ContactSection, MainOptions, ReviewSection
 
 
 def sentences(n):
@@ -22,6 +22,7 @@ class Tools(object):
         HeroSection.objects.create()
         GallerySection.objects.create()
         ContactSection.objects.create()
+        ReviewSection.objects.create()
 
 
 class GenerateFake(object):

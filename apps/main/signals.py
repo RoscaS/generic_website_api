@@ -16,6 +16,6 @@ def send_message(instance, **kwargs):
                 f"{instance.name} dit:\n\n"
                 f"{instance.message}",
         from_email=settings.DEFAULT_FROM_EMAIL,
-        recipient_list=[instance.email],
+        recipient_list=[settings.EMAIL_SEND_TO],
         fail_silently=False
     )

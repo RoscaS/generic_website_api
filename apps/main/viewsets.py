@@ -1,11 +1,25 @@
 from rest_framework import viewsets
 from .models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions, Message
+    ContactSection, MainOptions, Message, ReviewSection
 from .serializers import PresentationSerializer, HeroSerializer, \
-    GallerySerializer, ContactSerializer, MainOptionsSerializer, MessageSerializer
+    GallerySerializer, ContactSerializer, MainOptionsSerializer, \
+    MessageSerializer, ReviewSerializer
 
 
 # http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+
+
+class MainOptionsViewSet(viewsets.ModelViewSet):
+    queryset = MainOptions.objects.all()
+    serializer_class = MainOptionsSerializer
+    http_method_names = ['get', 'patch']
+
+
+class MessageViewSet(viewsets.ModelViewSet):
+    queryset = Message.objects.all()
+    serializer_class = MessageSerializer
+    http_method_names = ['get', 'post', 'patch']
+
 
 class PresentationViewSet(viewsets.ModelViewSet):
     queryset = PresentationSection.objects.all()
@@ -31,15 +45,10 @@ class ContactViewSet(viewsets.ModelViewSet):
     http_method_names = ['get', 'patch']
 
 
-class MainOptionsViewSet(viewsets.ModelViewSet):
-    queryset = MainOptions.objects.all()
-    serializer_class = MainOptionsSerializer
+class ReviewViewSet(viewsets.ModelViewSet):
+    queryset = ReviewSection.objects.all()
+    serializer_class = ReviewSerializer
     http_method_names = ['get', 'patch']
 
-
-class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
-    serializer_class = MessageSerializer
-    http_method_names = ['get', 'post', 'patch']
 
 
