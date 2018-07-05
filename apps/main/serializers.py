@@ -7,7 +7,7 @@ from apps.gallery.serializers import ImageSerializer
 class MainOptionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainOptions
-        fields = ('name', 'name_add', 'description', 'oppening', 'adress', 'city',
+        fields = ('project_name', 'name', 'name_add', 'description', 'oppening', 'adress', 'city',
             'post_code', 'phone', 'mail', 'facebook', 'tripadvisor',
             'google', 'twitter', 'instagram', 'linkedin', 'snapchat')
 

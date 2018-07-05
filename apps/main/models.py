@@ -19,6 +19,7 @@ def words(n):
 
 
 class MainOptions(models.Model):
+    project_name = models.CharField(max_length=15, null=False, default=DATA['PROJECT_NAME'] or '', help_text='Nom du projet.')
     name = models.CharField(max_length=15, null=False, default=DATA['NAME'] or '', help_text='Nom du commerce.')
     name_add = models.CharField(max_length=9, null=False, default=DATA['NAME_ADD'] or '', help_text='type de commerce.')
     description = models.CharField(max_length=30, null=False, default=DATA['DESCRIPTION'] or '', help_text='Très brève description.')
