@@ -3,6 +3,7 @@ import os
 import forgery_py
 
 from django.conf import settings
+from django.contrib.auth.models import User
 from apps.gallery.models import Gallery, Image
 from apps.main.models import PresentationSection, HeroSection, GallerySection, \
     ContactSection, MainOptions, ReviewSection
@@ -13,8 +14,18 @@ def sentences(n):
 
 
 class Tools(object):
+
+    @classmethod
+    def admin(cls):
+        User.objects.create_superuser(
+            username='admin',
+            email='jrosk.ad@gmail.com',
+            password='solsolsol'
+        )
+
     @classmethod
     def build(cls):
+        cls.admin()
         MainOptions.objects.create()
 
         GenerateFake.gallery()
