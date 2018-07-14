@@ -49,6 +49,12 @@ class Message(models.Model):
         ordering = ['-date']
 
 
+class PromoSection(models.Model):
+    title = models.CharField(max_length=30, null=False, default='A title')
+    text = models.CharField(max_length=700, null=False, default=sentences(4))
+    image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
+
+
 class PresentationSection(models.Model):
     title = models.CharField(max_length=200, null=False,
                              default=DATA['DESCRIPTION'] or sentences(1))

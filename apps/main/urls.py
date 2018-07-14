@@ -6,6 +6,7 @@ routeList = (
     (r'gallery', viewsets.GalleryViewSet),
     (r'contact', viewsets.ContactViewSet),
     (r'review', viewsets.ReviewViewSet),
+    (r'promo', viewsets.PromoViewSet),
     (r'options', viewsets.MainOptionsViewSet),
     (r'message', viewsets.MessageViewSet),
 )

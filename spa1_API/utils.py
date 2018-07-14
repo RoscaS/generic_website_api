@@ -6,7 +6,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from apps.gallery.models import Gallery, Image
 from apps.main.models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions, ReviewSection
+    ContactSection, MainOptions, ReviewSection, PromoSection
 
 
 def sentences(n):
@@ -30,6 +30,7 @@ class Tools(object):
 
         GenerateFake.gallery()
         GenerateFake.presentation()
+        GenerateFake.promo()
         HeroSection.objects.create()
         GallerySection.objects.create()
         ContactSection.objects.create()
@@ -37,6 +38,14 @@ class Tools(object):
 
 
 class GenerateFake(object):
+
+    @classmethod
+    def promo(cls):
+        image = Image.objects.create(
+            image='galleries/misc/action.jpg',
+            gallery=Gallery.objects.get(name='misc')
+        )
+        PromoSection.objects.create(image=image)
 
     @classmethod
     def presentation(cls):

@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Gallery, Image
 from .serializers import ImageSerializer, GallerySerializer
 
@@ -12,3 +13,5 @@ class GalleryViewSet(viewsets.ModelViewSet):
 class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
+    parser_classes = (MultiPartParser, FormParser)
+

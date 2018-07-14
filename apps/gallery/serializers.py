@@ -4,13 +4,13 @@ from .models import Gallery, Image
 # class ImageSerializer(serializers.HyperlinkedIdentityField):
 class ImageSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(max_length=None, use_url=True)
-    # gallery = serializers.HyperlinkedRelatedField(view_name='gallery-detail', read_only=True)
     gallery_name = serializers.ReadOnlyField(source='gallery.name')
-    gallery_id = serializers.ReadOnlyField(source='gallery.id')
+    gallery = serializers.SlugRelatedField(slug_field='slug', queryset=Gallery.objects.all())
 
     class Meta:
         model = Image
-        fields = ('image', 'gallery_id', 'gallery_name', 'description')
+        fields = ('image', 'id', 'gallery', 'gallery_name', 'description')
+        # depth = 1
 
 
 # class GallerySerializer(serializers.HyperlinkedIdentityField):
