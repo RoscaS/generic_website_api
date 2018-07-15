@@ -2,4 +2,7 @@ from django.apps import AppConfig
 
 
 class GalleryConfig(AppConfig):
-    name = 'gallery'
+    name = 'apps.gallery'
+
+    def ready(self):
+        import apps.gallery.signals

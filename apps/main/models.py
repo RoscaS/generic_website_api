@@ -1,10 +1,8 @@
 import forgery_py
 import requests as req
-import json
 
 from django.db import models
 from django.conf import settings
-from django.core.mail import send_mail
 
 from apps.gallery.models import Image
 
@@ -52,7 +50,7 @@ class Message(models.Model):
 class PromoSection(models.Model):
     title = models.CharField(max_length=30, null=False, default='A title')
     text = models.CharField(max_length=700, null=False, default=sentences(4))
-    image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
+    image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
 
 class PresentationSection(models.Model):
@@ -88,7 +86,6 @@ class ContactSection(models.Model):
     sub_title = models.TextField(max_length=200, null=False, default="N'hésitez pas à nous contacter...")
     sub_title2 = models.TextField(max_length=200, null=False, default='... en nous laissant un message...')
     sub_title3 = models.TextField(max_length=200, null=False, default='... ou en passant directement nous voir.')
-
 
 
 class ReviewSection(models.Model):

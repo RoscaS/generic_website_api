@@ -7,7 +7,6 @@ from . import models
 
 @receiver(post_save, sender=models.Message)
 def send_message(instance, **kwargs):
-    print('ici')
     send_mail(
         subject=f"Nouveau message de {instance.name}",
         message=f"Message #{instance.pk} de {instance.email}\n"

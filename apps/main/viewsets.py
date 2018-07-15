@@ -1,5 +1,9 @@
+import os, shutil
+
 from rest_framework import viewsets
-from rest_framework import permissions
+
+from apps.gallery.models import Gallery, Image
+from django.conf import settings
 from .models import PresentationSection, HeroSection, GallerySection, \
     ContactSection, MainOptions, Message, ReviewSection, PromoSection
 from .serializers import PresentationSerializer, HeroSerializer, \
@@ -29,6 +33,18 @@ class PromoViewSet(viewsets.ModelViewSet):
     serializer_class = PromoSerializer
     http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
+
+    def update(self, request, pk=None):
+        gallery_path = os.path.join(settings.MEDIA_ROOT,'galleries')
+        _temp_images = os.listdir(os.path.join(gallery_path, '_temp'))
+        if _temp_images:
+            image = Image.objects.filter(gallery__name='_temp').first()
+            shutil.move(f"{gallery_path}/_temp/{_temp_images[0]}",
+                        f"{gallery_path}/misc/action.jpg")
+            image.image = f"{gallery_path}/misc/action.jpg"
+            image.gallery = Gallery.objects.get(name='misc')
+            image.save()
+        return super().update(request)
 
 
 class PresentationViewSet(viewsets.ModelViewSet):

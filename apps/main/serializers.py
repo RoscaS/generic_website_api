@@ -15,7 +15,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        fields = '__all__'
+        fields = ('name', 'email', 'message', 'date')
 
 
 class PromoSerializer(serializers.ModelSerializer):
@@ -23,7 +23,7 @@ class PromoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PromoSection
-        fields = '__all__'
+        fields = ('title', 'text', 'image')
 
 
 class PresentationSerializer(serializers.ModelSerializer):
@@ -31,7 +31,7 @@ class PresentationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PresentationSection
-        fields = '__all__'
+        fields = ('title', 'sub_title', 'text1', 'text2', 'image')
 
 
 class HeroSerializer(serializers.ModelSerializer):
@@ -43,16 +43,17 @@ class HeroSerializer(serializers.ModelSerializer):
 class GallerySerializer(serializers.ModelSerializer):
     class Meta:
         model = GallerySection
-        fields = '__all__'
+        fields = ('title', 'sub_title')
 
 
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactSection
-        fields = '__all__'
+        fields = ('title', 'sub_title', 'sub_title2', 'sub_title3')
 
 
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReviewSection
-        fields = '__all__'
+        fields = ('title', 'sub_title', 'g_api', 'g_place_id',
+                  'g_review_all_url', 'g_review_new_url', 'reviews')
