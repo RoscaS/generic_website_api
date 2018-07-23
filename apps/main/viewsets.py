@@ -50,34 +50,48 @@ class PromoViewSet(viewsets.ModelViewSet):
 class PresentationViewSet(viewsets.ModelViewSet):
     queryset = PresentationSection.objects.all()
     serializer_class = PresentationSerializer
-    http_method_names = ['get', 'patch']
+    http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
+
+    def update(self, request, pk=None):
+        gallery_path = os.path.join(settings.MEDIA_ROOT,'galleries')
+        _temp_images = os.listdir(os.path.join(gallery_path, '_temp'))
+        if _temp_images:
+            image = Image.objects.filter(gallery__name='_temp').first()
+            shutil.move(f"{gallery_path}/_temp/{_temp_images[0]}",
+                        f"{gallery_path}/misc/presentation.jpg")
+            image.image = f"{gallery_path}/misc/presentation.jpg"
+            image.gallery = Gallery.objects.get(name='misc')
+            image.save()
+        return super().update(request)
 
 
 class HeroViewSet(viewsets.ModelViewSet):
     queryset = HeroSection.objects.all()
     serializer_class = HeroSerializer
-    http_method_names = ['get', 'patch']
+    http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
 
 
 class GalleryViewSet(viewsets.ModelViewSet):
     queryset = GallerySection.objects.all()
     serializer_class = GallerySerializer
-    http_method_names = ['get', 'patch']
+    http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
 
 
 class ContactViewSet(viewsets.ModelViewSet):
     queryset = ContactSection.objects.all()
     serializer_class = ContactSerializer
-    http_method_names = ['get', 'patch']
+    http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = ReviewSection.objects.all()
     serializer_class = ReviewSerializer
-    http_method_names = ['get', 'patch']
+    http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
+
+
 
