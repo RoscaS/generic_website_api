@@ -15,6 +15,8 @@ class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     parser_classes = (MultiPartParser, FormParser)
+    http_method_names = ['get', 'put', 'delete']
+
 
     def create(self, request):
         images = Gallery.objects.get(name='_temp').images.all()

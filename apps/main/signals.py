@@ -18,3 +18,4 @@ def send_message(instance, **kwargs):
         recipient_list=[settings.EMAIL_SEND_TO],
         fail_silently=False
     )
+

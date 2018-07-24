@@ -25,8 +25,15 @@ class Image(models.Model):
     image = models.ImageField(null=False, upload_to=gallery_path)
     description = models.TextField(max_length=1000, null=True)
     date = models.DateTimeField(auto_now_add=True)
-    position = models.PositiveIntegerField(default=0)
     gallery = models.ForeignKey(Gallery, related_name='images', on_delete=models.CASCADE)
+    position = models.PositiveIntegerField(default=0)
+
+    class meta:
+        ordering = ['image']
+
+    @property
+    def name(self):
+        return self.image.name.split('/')[-1]
 
     def __str__(self):
-        return f'{self.image.url}'
+        return f'{self.name}'
