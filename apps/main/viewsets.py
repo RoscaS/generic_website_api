@@ -48,6 +48,7 @@ class PromoViewSet(viewsets.ModelViewSet):
 
 
 class PresentationViewSet(viewsets.ModelViewSet):
+
     queryset = PresentationSection.objects.all()
     serializer_class = PresentationSerializer
     http_method_names = ['get', 'put']

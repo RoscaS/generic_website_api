@@ -15,7 +15,7 @@ class ImageViewSet(viewsets.ModelViewSet):
     queryset = Image.objects.all()
     serializer_class = ImageSerializer
     parser_classes = (MultiPartParser, FormParser)
-    http_method_names = ['get', 'put', 'delete']
+    http_method_names = ['get', 'post', 'put', 'delete']
 
 
     def create(self, request):

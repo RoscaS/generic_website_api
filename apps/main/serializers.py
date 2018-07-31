@@ -57,3 +57,4 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = ReviewSection
         fields = ('title', 'sub_title', 'g_api', 'g_place_id',
                   'g_review_all_url', 'g_review_new_url', 'reviews')
+
