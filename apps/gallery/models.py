@@ -15,13 +15,17 @@ class Gallery(models.Model):
     def __str__(self):
         return f'{self.name}'
 
-
+def gallery_path(instance, filename):
+    return f'galleries/{filename}'
 
 def gallery_path(instance, filename):
-    return f'galleries/{instance.gallery.name}/{filename}'
+    if instance.gallery.name == '_temp':
+        return f'galleries/{instance.gallery.name}/{filename}'
+    return f'galleries/{filename}'
 
 
 class Image(models.Model):
+    name = models.CharField(max_length=100, null=True)
     image = models.ImageField(null=False, upload_to=gallery_path)
     description = models.TextField(max_length=1000, null=True)
     date = models.DateTimeField(auto_now_add=True)
@@ -32,9 +36,9 @@ class Image(models.Model):
     class meta:
         ordering = ['image']
 
-    @property
-    def name(self):
-        return self.image.name.split('/')[-1]
+    # @property
+    # def name(self):
+    #     return self.image.name.split('/')[-1]
 
     def __str__(self):
         return f'{self.name}'

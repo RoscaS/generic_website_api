@@ -1,4 +1,5 @@
-import os
+import os, shutil
+from django.conf import settings
 from django.db.models.signals import pre_delete, pre_save, post_save
 from django.dispatch import receiver
 
@@ -11,8 +12,11 @@ def delete_physical_image(instance, **kwargs):
     except:
         pass
 
-@receiver(pre_save, sender=Image)
+
+@receiver(post_save, sender=Image)
 def set_position(instance, **kwargs):
-    g = Gallery.objects.get(name=instance.gallery)
-    instance.position = g.images.all().count() + 1
+    if kwargs['created']:
+        g = Gallery.objects.get(name=instance.gallery)
+        instance.position = g.images.all().count() + 1
+
 

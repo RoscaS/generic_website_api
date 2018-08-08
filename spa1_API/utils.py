@@ -21,23 +21,38 @@ simple_models = [
 def sentences(n):
     return forgery_py.lorem_ipsum.sentences(n).capitalize()
 
-
 class Tools(object):
 
     @classmethod
     def reset_media(cls):
         media = f'{settings.BASE_DIR}/media/galleries'
-        galleries = [i for i in os.listdir(media)]
-        for gallery in galleries:
-            for image in os.listdir(f"{media}/{gallery}"):
-                os.remove(f"{media}/{gallery}/{image}")
-            print(f"Folder '{gallery}': Cleared.")
+        shutil.rmtree(media)
+        os.mkdir(media)
+        os.mkdir(f"{media}/_temp")
 
-            _media = media.replace('media', '_media')
-            for image in os.listdir(f"{_media}/{gallery}"):
-                shutil.copy(f"{_media}/{gallery}/{image}",
-                            f"{media}/{gallery}/{image}")
-            print(f"Folder '{gallery}': Reinitialized.")
+        # for el in os.listdir(media):
+        #     try:
+        #         os.remove(f"{media}/{el}")
+        #     except:
+        #         shutil.rmtree(f"{media}/{el}")
+
+
+        #
+        # galleries = [i for i in os.listdir(_media)]
+        #
+        # for gallery in galleries:
+        #     for image in os.listdir(f"{_media}/{gallery}"):
+
+        # for gallery in galleries:
+        #     for image in os.listdir(f"{media}/{gallery}"):
+        #         os.remove(f"{media}/{gallery}/{image}")
+        #     print(f"Folder '{gallery}': Cleared.")
+        #
+        #     _media = media.replace('media', '_media')
+        #     for image in os.listdir(f"{_media}/{gallery}"):
+        #         shutil.copy(f"{_media}/{gallery}/{image}",
+        #                     f"{media}/{gallery}/{image}")
+        #     print(f"Folder '{gallery}': Reinitialized.")
 
     @classmethod
     def admin(cls):
@@ -62,7 +77,6 @@ class Tools(object):
 
 
 class GenerateFake(object):
-
     @classmethod
     def promo(cls):
         image = gallery.Image.objects.create(
@@ -81,10 +95,26 @@ class GenerateFake(object):
         main.PresentationSection.objects.create(image=image)
         print("Fake Presentation model: Created.")
 
+    # @classmethod
+    # def promo(cls):
+    #     main.PromoSection.objects.create(image=gallery.Image.objects.get(name='0023.jpg'))
+    #     print("Fake Promo model: Created.")
+    #
+    # @classmethod
+    # def presentation(cls):
+    #     main.PresentationSection.objects.create(image=gallery.Image.objects.get(name='0024.jpg'))
+    #     print("Fake Presentation model: Created.")
+
     @classmethod
     def gallery(cls):
         media = f'{settings.BASE_DIR}/media/galleries'
-        galleries = [i for i in os.listdir(media)]
+        _media = f'{settings.BASE_DIR}/_media/galleries'
+        galleries = [i for i in os.listdir(_media)]
+        print(galleries)
+        galleries.pop(galleries.index('misc'))
+        print(galleries)
+
+        count = 1
         print('Galleries:')
         for i in galleries:
             print(f"{4*' '}{i}", end=": ")
@@ -92,14 +122,22 @@ class GenerateFake(object):
                 slug=i,
                 name=i
             )
-            images = sorted([i for i in os.listdir(f'{media}/{i}')])
-            print(images)
+            images = sorted([i for i in os.listdir(f'{_media}/{i}')])
             for pos, j in enumerate(images):
+                name = "{:04d}.{}".format(count, j.split('.')[-1])
+                shutil.copy(f'{_media}/{i}/{j}', f'{media}/{name}')
+                print(name)
                 gallery.Image.objects.create(
-                    image=f'galleries/{i}/{j}',
+                    name = name,
+                    image=f'galleries/{name}',
                     description=sentences(1),
                     gallery=g,
                 )
+                count += 1
+
+        gallery.Gallery.objects.create(slug='misc', name='misc')
+        shutil.copytree(f'{_media}/misc', f'{media}/misc')
+
 
         descriptions = ['Articles', 'Galerie', 'Contact']
         parallax = gallery.Image.objects.filter(gallery__name='parallax')

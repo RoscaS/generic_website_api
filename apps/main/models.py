@@ -1,5 +1,5 @@
 import forgery_py
-import requests as req
+import requests
 
 from django.db import models
 from django.conf import settings
@@ -34,6 +34,8 @@ class MainOptions(models.Model):
     instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
     linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
     snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
+
+
 
 
 class Message(models.Model):
@@ -98,8 +100,8 @@ class ReviewSection(models.Model):
 
     @property
     def reviews(self):
-        resp = req.get(DATA['GOOGLE_PLACE'])
-        d = resp.json()['result']
+        response = requests.get(DATA['GOOGLE_PLACE'])
+        d = response.json()['result']
         overall = d['rating']
         reviews_lst = d['reviews']
         return ({'overall': overall, 'reviews': reviews_lst})
