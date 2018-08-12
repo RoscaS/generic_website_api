@@ -70,46 +70,6 @@ class PresentationViewSet(viewsets.ModelViewSet):
             image.save()
         return super().update(request)
 
-
-# class PromoViewSet(viewsets.ModelViewSet):
-#     queryset = PromoSection.objects.all()
-#     serializer_class = PromoSerializer
-#     http_method_names = ['get', 'put']
-#     # permission_classes = (permissions.IsAdminUser, )
-#
-#     def update(self, request, pk=None):
-#         gallery_path = os.path.join(settings.MEDIA_ROOT,'galleries')
-#         _temp_images = os.listdir(os.path.join(gallery_path, '_temp'))
-#         if _temp_images:
-#             image = Image.objects.filter(gallery__name='_temp').first()
-#             shutil.move(f"{gallery_path}/_temp/{_temp_images[0]}",
-#                         f"{gallery_path}/0023.jpg")
-#             image.image = f"{gallery_path}/0023.jpg"
-#             image.gallery = Gallery.objects.get(name='misc')
-#             image.save()
-#         return super().update(request)
-#
-#
-# class PresentationViewSet(viewsets.ModelViewSet):
-#
-#     queryset = PresentationSection.objects.all()
-#     serializer_class = PresentationSerializer
-#     http_method_names = ['get', 'put']
-#     # permission_classes = (permissions.IsAdminUser, )
-#
-#     def update(self, request, pk=None):
-#         gallery_path = os.path.join(settings.MEDIA_ROOT,'galleries')
-#         _temp_images = os.listdir(os.path.join(gallery_path, '_temp'))
-#         if _temp_images:
-#             image = Image.objects.filter(gallery__name='_temp').first()
-#             shutil.move(f"{gallery_path}/_temp/{_temp_images[0]}",
-#                         f"{gallery_path}/0024.jpg")
-#             image.image = f"{gallery_path}/0024.jpg"
-#             image.gallery = Gallery.objects.get(name='misc')
-#             image.save()
-#         return super().update(request)
-
-
 class HeroViewSet(viewsets.ModelViewSet):
     queryset = HeroSection.objects.all()
     serializer_class = HeroSerializer

@@ -30,30 +30,6 @@ class Tools(object):
         os.mkdir(media)
         os.mkdir(f"{media}/_temp")
 
-        # for el in os.listdir(media):
-        #     try:
-        #         os.remove(f"{media}/{el}")
-        #     except:
-        #         shutil.rmtree(f"{media}/{el}")
-
-
-        #
-        # galleries = [i for i in os.listdir(_media)]
-        #
-        # for gallery in galleries:
-        #     for image in os.listdir(f"{_media}/{gallery}"):
-
-        # for gallery in galleries:
-        #     for image in os.listdir(f"{media}/{gallery}"):
-        #         os.remove(f"{media}/{gallery}/{image}")
-        #     print(f"Folder '{gallery}': Cleared.")
-        #
-        #     _media = media.replace('media', '_media')
-        #     for image in os.listdir(f"{_media}/{gallery}"):
-        #         shutil.copy(f"{_media}/{gallery}/{image}",
-        #                     f"{media}/{gallery}/{image}")
-        #     print(f"Folder '{gallery}': Reinitialized.")
-
     @classmethod
     def admin(cls):
         User.objects.create_superuser(
@@ -94,16 +70,6 @@ class GenerateFake(object):
         )
         main.PresentationSection.objects.create(image=image)
         print("Fake Presentation model: Created.")
-
-    # @classmethod
-    # def promo(cls):
-    #     main.PromoSection.objects.create(image=gallery.Image.objects.get(name='0023.jpg'))
-    #     print("Fake Promo model: Created.")
-    #
-    # @classmethod
-    # def presentation(cls):
-    #     main.PresentationSection.objects.create(image=gallery.Image.objects.get(name='0024.jpg'))
-    #     print("Fake Presentation model: Created.")
 
     @classmethod
     def gallery(cls):

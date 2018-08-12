@@ -56,8 +56,7 @@ class PromoSection(models.Model):
 
 
 class PresentationSection(models.Model):
-    title = models.CharField(max_length=35, null=False,
-                             default=DATA['DESCRIPTION'] or sentences(1))
+    title = models.CharField(max_length=35, null=False, default=DATA['DESCRIPTION'] or sentences(1))
     sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
     text1 = models.TextField(max_length=800, default=sentences(10))
     text2 = models.TextField(max_length=800, default=sentences(13))

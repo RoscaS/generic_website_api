@@ -6,7 +6,7 @@ class Gallery(models.Model):
     slug = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=200, null=False)
     description = models.TextField(max_length=1000, null=True)
-    limit = models.IntegerField(default=24)
+    limit = models.IntegerField(default=8)
     # images
 
     def path(self):
