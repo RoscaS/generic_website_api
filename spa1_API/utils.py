@@ -7,6 +7,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from apps.gallery import models as gallery
 from apps.main import models as main
+from apps.articles import models as articles
 
 
 simple_models = [
@@ -54,6 +55,10 @@ class Tools(object):
 
 class GenerateFake(object):
     @classmethod
+    def articles(cls):
+        pass
+
+    @classmethod
     def promo(cls):
         image = gallery.Image.objects.create(
             image='galleries/misc/action.jpg',
@@ -85,8 +90,8 @@ class GenerateFake(object):
         for i in galleries:
             print(f"{4*' '}{i}", end=": ")
             g = gallery.Gallery.objects.create(
-                slug=i,
-                name=i
+                slug=i.capitalize(),
+                name=i.capitalize()
             )
             images = sorted([i for i in os.listdir(f'{_media}/{i}')])
             for pos, j in enumerate(images):
@@ -106,8 +111,16 @@ class GenerateFake(object):
 
 
         descriptions = ['Articles', 'Galerie', 'Contact']
-        parallax = gallery.Image.objects.filter(gallery__name='parallax')
-        for c, i in enumerate(parallax):
+        parallax = gallery.Gallery.objects.get(name='Parallax')
+        for c, i in enumerate(parallax.images.all()):
             i.description = descriptions[c]
             i.save()
+
+        parallax.limit = 3
+        parallax.save()
+
+        stock = gallery.Gallery.objects.get(name='Stock')
+        stock.limit = 32
+        stock.save()
+
 

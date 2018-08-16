@@ -58,8 +58,8 @@ class PromoSection(models.Model):
 class PresentationSection(models.Model):
     title = models.CharField(max_length=35, null=False, default=DATA['DESCRIPTION'] or sentences(1))
     sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
-    text1 = models.TextField(max_length=800, default=sentences(10))
-    text2 = models.TextField(max_length=800, default=sentences(13))
+    text1 = models.TextField(max_length=800, default=sentences(8))
+    text2 = models.TextField(max_length=800, default=sentences(9))
     image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
 
 
@@ -70,9 +70,9 @@ class HeroSection(models.Model):
     title1 = models.CharField(max_length=20, null=False, default=words(2))
     title2 = models.CharField(max_length=20, null=False, default=words(2))
     title3 = models.CharField(max_length=20, null=False, default=words(2))
-    text1 = models.CharField(max_length=200, null=False, default=sentences(3))
-    text2 = models.CharField(max_length=200, null=False, default=sentences(3))
-    text3 = models.CharField(max_length=200, null=False, default=sentences(3))
+    text1 = models.CharField(max_length=200, null=False, default=sentences(2))
+    text2 = models.CharField(max_length=200, null=False, default=sentences(2))
+    text3 = models.CharField(max_length=200, null=False, default=sentences(2))
 
 
 class GallerySection(models.Model):

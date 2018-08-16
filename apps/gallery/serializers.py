@@ -16,7 +16,7 @@ class GallerySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Gallery
-        fields = ('id', 'name', 'description', 'url', 'images')
+        fields = ('id', 'name', 'description', 'url', 'images', 'limit')
         lookup_field = 'slug'
         extra_kwargs = {
             'url': {'lookup_field': 'slug'}

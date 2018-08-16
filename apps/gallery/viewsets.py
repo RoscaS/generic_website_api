@@ -1,4 +1,3 @@
-
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Gallery, Image
@@ -30,7 +29,7 @@ class ImageViewSet(viewsets.ModelViewSet):
         image = Image.objects.get(id=data['id'])
         if image.gallery.name != data['gallery']:
             print(f"FRONT\tid: {data['id']}\tgal: {data['gallery']}\nBACK\tid: {image.id}\tgal: {image.gallery.name}\n\n")
-            image.gallery = Gallery.objects.get(name=data['gallery'].lower())
+            image.gallery = Gallery.objects.get(name=data['gallery'])
 
             image.save()
         return super().partial_update(request, pk)

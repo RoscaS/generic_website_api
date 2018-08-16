@@ -5,7 +5,7 @@ from django.db import models
 class Gallery(models.Model):
     slug = models.CharField(max_length=100, unique=True)
     name = models.CharField(max_length=200, null=False)
-    description = models.TextField(max_length=1000, null=True)
+    description = models.TextField(max_length=100, null=True)
     limit = models.IntegerField(default=8)
     # images
 
@@ -14,9 +14,6 @@ class Gallery(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
-def gallery_path(instance, filename):
-    return f'galleries/{filename}'
 
 def gallery_path(instance, filename):
     if instance.gallery.name == '_temp':
@@ -35,10 +32,6 @@ class Image(models.Model):
 
     class meta:
         ordering = ['image']
-
-    # @property
-    # def name(self):
-    #     return self.image.name.split('/')[-1]
 
     def __str__(self):
         return f'{self.name}'
