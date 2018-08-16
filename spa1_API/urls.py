@@ -14,7 +14,6 @@ router = build_routes()
 
 urlpatterns = [
     path(route='', view=include(router.urls)),
-
     path(route='api-auth', view=include('rest_framework.urls')),
     path(route='schema/', view=schema_view),
     path(route='docs/', view=include_docs_urls(title='Gallery')),

@@ -7,11 +7,29 @@ class ItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Item
-        fields = '__ALL__'
+        fields = (
+            'id',
+            'name',
+            'price',
+            'position',
+            'category',
+            'description',
+            'image',
+        )
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    articles = ItemSerializer(many=True, read_only=True)
+    items = ItemSerializer(many=True, read_only=True)
     class Meta:
         model = Category
-        fields = '__ALL__'
+        lookup_field = 'slug'
+        extra_kwargs = {
+            'url': {'lookup_field': 'slug'}
+        }
+        fields = (
+            'slug',
+            'name',
+            'description',
+            'position',
+            'items',
+        )

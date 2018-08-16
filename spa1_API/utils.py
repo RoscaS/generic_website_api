@@ -1,7 +1,5 @@
-import os
-import shutil
-
-import forgery_py
+import os, shutil, forgery_py
+from random import randint, seed
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -18,15 +16,16 @@ simple_models = [
     main.MainOptions,
 ]
 
+media = f'{settings.BASE_DIR}/media/galleries'
+_media = f'{settings.BASE_DIR}/_media/galleries'
+
 
 def sentences(n):
     return forgery_py.lorem_ipsum.sentences(n).capitalize()
 
 class Tools(object):
-
     @classmethod
     def reset_media(cls):
-        media = f'{settings.BASE_DIR}/media/galleries'
         shutil.rmtree(media)
         os.mkdir(media)
         os.mkdir(f"{media}/_temp")
@@ -45,6 +44,7 @@ class Tools(object):
         cls.admin()
         cls.reset_media()
         GenerateFake.gallery()
+        GenerateFake.articles()
         GenerateFake.presentation()
         GenerateFake.promo()
 
@@ -56,7 +56,38 @@ class Tools(object):
 class GenerateFake(object):
     @classmethod
     def articles(cls):
-        pass
+        names = []
+        images = gallery.Gallery.objects.get(name='Articles').images.all()
+        counter = images.count()
+        # images = [i for i in images_queryset]
+        # images.reverse()
+
+        word = lambda: forgery_py.lorem_ipsum.word().capitalize()
+        for category in [word() for i in range(4)]:
+            seed()
+            description = forgery_py.lorem_ipsum.words(randint(3, 5)),
+            cat = articles.Category.objects.create(
+                slug=category,
+                name=category,
+                description=description[0].capitalize() + '.'
+            )
+            cat.save()
+            for item in range(6):
+                counter -= 1
+                description = forgery_py.lorem_ipsum.words(randint(3, 5)),
+                name = 'Shufflebeat'
+                while name in names:
+                    name = forgery_py.name.company_name()
+                names.append(name)
+
+                article = articles.Item.objects.create(
+                    name=name,
+                    price=float(f"{randint(5, 20)}.{randint(0, 99)}"),
+                    description=description[0].capitalize() + '.',
+                    category=cat,
+                    image=images[counter].image
+                )
+                article.save()
 
     @classmethod
     def promo(cls):
@@ -78,8 +109,7 @@ class GenerateFake(object):
 
     @classmethod
     def gallery(cls):
-        media = f'{settings.BASE_DIR}/media/galleries'
-        _media = f'{settings.BASE_DIR}/_media/galleries'
+
         galleries = [i for i in os.listdir(_media)]
         print(galleries)
         galleries.pop(galleries.index('misc'))
@@ -94,7 +124,7 @@ class GenerateFake(object):
                 name=i.capitalize()
             )
             images = sorted([i for i in os.listdir(f'{_media}/{i}')])
-            for pos, j in enumerate(images):
+            for j in images:
                 name = "{:04d}.{}".format(count, j.split('.')[-1])
                 shutil.copy(f'{_media}/{i}/{j}', f'{media}/{name}')
                 print(name)
