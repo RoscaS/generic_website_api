@@ -28,7 +28,6 @@ class Image(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     gallery = models.ForeignKey(Gallery, related_name='images', on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0)
-    visible = models.BooleanField(default=True)
 
     class meta:
         ordering = ['image']

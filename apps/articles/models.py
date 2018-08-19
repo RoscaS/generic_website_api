@@ -8,6 +8,9 @@ class Category(models.Model):
     description = models.TextField(max_length=1000, null=True)
     position = models.PositiveIntegerField(default=0)
 
+
+    #  ATTENTION IF NAME CHANGE, VERIFIER: PAS DE DOUBLE + RENAME SLUG!!!
+
     def __str__(self):
         return f'{self.name}'
 
@@ -17,13 +20,13 @@ def gallery_path(instance, filename):
     return f'galleries/{filename}'
 
 class Item(models.Model):
-    name = models.CharField(max_length=100, null=False, unique=True)
+    name = models.CharField(max_length=30, null=False, unique=True)
     price = models.FloatField(default=.0, null=False, validators=[MinValueValidator(.0)])
-    description = models.CharField(max_length=400, null=True, blank=True)
+    description = models.CharField(max_length=200, null=True, blank=True)
     category = models.ForeignKey(Category, related_name="items", on_delete=models.CASCADE)
-    image = models.ImageField(null=False, upload_to=gallery_path)
+    image = models.OneToOneField(Image, related_name='item', blank=True, null=True, on_delete=models.SET_NULL)
     position = models.PositiveIntegerField(default=0)
-    data = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.name}'

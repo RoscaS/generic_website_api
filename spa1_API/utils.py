@@ -10,7 +10,7 @@ from apps.articles import models as articles
 
 simple_models = [
     main.HeroSection,
-    main.GallerySection,
+    main.EventsSection,
     main.ContactSection,
     main.ReviewSection,
     main.MainOptions,
@@ -40,6 +40,18 @@ class Tools(object):
         print("User 'admin': Created.")
 
     @classmethod
+    def texts(cls):
+        main.Texts.objects.create(
+            promo=main.PromoSection.objects.first(),
+            presentation=main.PresentationSection.objects.first(),
+            hero=main.HeroSection.objects.first(),
+            events=main.EventsSection.objects.first(),
+            contact=main.ContactSection.objects.first(),
+            review=main.ReviewSection.objects.first(),
+        )
+        print("Texts meta object: Created.")
+
+    @classmethod
     def build(cls):
         cls.admin()
         cls.reset_media()
@@ -51,6 +63,8 @@ class Tools(object):
         for i in simple_models:
             i.objects.create()
             print(f"Model {i.__name__}: Created.")
+
+        cls.texts()
 
 
 class GenerateFake(object):
@@ -85,7 +99,7 @@ class GenerateFake(object):
                     price=float(f"{randint(5, 20)}.{randint(0, 99)}"),
                     description=description[0].capitalize() + '.',
                     category=cat,
-                    image=images[counter].image
+                    image=images[counter]
                 )
                 article.save()
 
@@ -148,6 +162,10 @@ class GenerateFake(object):
 
         parallax.limit = 3
         parallax.save()
+
+        articles = gallery.Gallery.objects.get(name='Articles')
+        articles.limit = 1024
+        articles.save()
 
         stock = gallery.Gallery.objects.get(name='Stock')
         stock.limit = 32

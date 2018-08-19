@@ -1,6 +1,6 @@
 from . import viewsets
 
 routeList = (
-    (r'Category', viewsets.CategoryViewSet),
-    (r'Item', viewsets.ItemViewSet),
+    (r'category', viewsets.CategoryViewSet),
+    (r'item', viewsets.ItemViewSet),
 )

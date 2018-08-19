@@ -4,11 +4,11 @@ from rest_framework import viewsets
 
 from apps.gallery.models import Gallery, Image
 from django.conf import settings
-from .models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions, Message, ReviewSection, PromoSection
+from .models import PresentationSection, HeroSection, EventsSection, \
+    ContactSection, MainOptions, Message, ReviewSection, PromoSection, Texts
 from .serializers import PresentationSerializer, HeroSerializer, \
-    GallerySerializer, ContactSerializer, MainOptionsSerializer, \
-    MessageSerializer, ReviewSerializer, PromoSerializer
+    EventsSerializer, ContactSerializer, MainOptionsSerializer, \
+    MessageSerializer, ReviewSerializer, PromoSerializer, TextsSerializer
 
 
 # http_method_names = ['get', 'post', 'put', 'patch', 'delete']
@@ -59,6 +59,8 @@ class PresentationViewSet(viewsets.ModelViewSet):
 
     def update(self, request, pk=None):
         print('\n\nPRESENTATION\n\n')
+        # gallery_path = f'{settings.BASE_DIR}/media/galleries'
+
         gallery_path = os.path.join(settings.MEDIA_ROOT,'galleries')
         _temp_images = os.listdir(os.path.join(gallery_path, '_temp'))
         if _temp_images:
@@ -68,6 +70,7 @@ class PresentationViewSet(viewsets.ModelViewSet):
             image.image = f"{gallery_path}/misc/presentation.jpg"
             image.gallery = Gallery.objects.get(name='misc')
             image.save()
+            print(f"{gallery_path}/misc/presentation.jpg")
         return super().update(request)
 
 class HeroViewSet(viewsets.ModelViewSet):
@@ -77,9 +80,9 @@ class HeroViewSet(viewsets.ModelViewSet):
     # permission_classes = (permissions.IsAdminUser, )
 
 
-class GalleryViewSet(viewsets.ModelViewSet):
-    queryset = GallerySection.objects.all()
-    serializer_class = GallerySerializer
+class EventsViewSet(viewsets.ModelViewSet):
+    queryset = EventsSection.objects.all()
+    serializer_class = EventsSerializer
     http_method_names = ['get', 'put']
     # permission_classes = (permissions.IsAdminUser, )
 
@@ -95,6 +98,13 @@ class ReviewViewSet(viewsets.ModelViewSet):
     queryset = ReviewSection.objects.all()
     serializer_class = ReviewSerializer
     http_method_names = ['get', 'put']
+    # permission_classes = (permissions.IsAdminUser, )
+
+
+class TextsViewSet(viewsets.ModelViewSet):
+    queryset = Texts.objects.all()
+    serializer_class = TextsSerializer
+    http_method_names = ['get']
     # permission_classes = (permissions.IsAdminUser, )
 
 

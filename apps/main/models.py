@@ -50,12 +50,14 @@ class Message(models.Model):
 
 
 class PromoSection(models.Model):
+    name = models.CharField(default='Promo', max_length=15)
     title = models.CharField(max_length=35, null=False, default='A title')
     text = models.CharField(max_length=800, null=False, default=sentences(4))
     image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
 
 class PresentationSection(models.Model):
+    name = models.CharField(default='Presentation', max_length=15)
     title = models.CharField(max_length=35, null=False, default=DATA['DESCRIPTION'] or sentences(1))
     sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
     text1 = models.TextField(max_length=800, default=sentences(8))
@@ -64,6 +66,7 @@ class PresentationSection(models.Model):
 
 
 class HeroSection(models.Model):
+    name = models.CharField(default='Hero', max_length=15)
     icon1 = models.CharField(max_length=20, null=False, default="fab fa-cloudversify")
     icon2 = models.CharField(max_length=20, null=False, default="far fa-paint-brush")
     icon3 = models.CharField(max_length=20, null=False, default="far fa-compass")
@@ -75,13 +78,15 @@ class HeroSection(models.Model):
     text3 = models.CharField(max_length=200, null=False, default=sentences(2))
 
 
-class GallerySection(models.Model):
+class EventsSection(models.Model):
+    name = models.CharField(default='Events', max_length=15)
     header = models.CharField(max_length=30, null=False, default='Galerie')
     title = models.CharField(max_length=35, null=False, default='Derniers événements')
     sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
 
 
 class ContactSection(models.Model):
+    name = models.CharField(default='Contact', max_length=15)
     header = models.CharField(max_length=30, null=False, default='Contact')
     title = models.CharField(max_length=35, null=False, default='Où nous trouver')
     sub_title = models.TextField(max_length=200, null=False, default="N'hésitez pas à nous contacter...")
@@ -90,6 +95,7 @@ class ContactSection(models.Model):
 
 
 class ReviewSection(models.Model):
+    name = models.CharField(default='Review', max_length=15)
     title = models.CharField(max_length=35, null=False, default='Google Review')
     sub_title = models.CharField(max_length=200, null=False, default='Ce que disent les gens de nous')
     g_api = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE_API'] or '', blank=True)
@@ -104,3 +110,13 @@ class ReviewSection(models.Model):
         overall = d['rating']
         reviews_lst = d['reviews']
         return ({'overall': overall, 'reviews': reviews_lst})
+
+
+class Texts(models.Model):
+    promo = models.OneToOneField(PromoSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+    presentation = models.OneToOneField(PresentationSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+    hero = models.OneToOneField(HeroSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+    events = models.OneToOneField(EventsSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+    contact = models.OneToOneField(ContactSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+    review = models.OneToOneField(ReviewSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
+

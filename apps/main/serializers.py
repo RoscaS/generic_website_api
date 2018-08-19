@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from .models import PresentationSection, HeroSection, GallerySection, \
-    ContactSection, MainOptions, Message, ReviewSection, PromoSection
+from .models import PresentationSection, HeroSection, EventsSection, \
+    ContactSection, MainOptions, Message, ReviewSection, PromoSection, Texts
 from apps.gallery.serializers import ImageSerializer
 
 
@@ -43,9 +43,9 @@ class HeroSerializer(serializers.ModelSerializer):
         exclude = ('id',)
 
 
-class GallerySerializer(serializers.ModelSerializer):
+class EventsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = GallerySection
+        model = EventsSection
         # fields = ('id', 'title', 'sub_title')
         exclude = ('id', 'header')
 
@@ -58,6 +58,27 @@ class ContactSerializer(serializers.ModelSerializer):
 class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReviewSection
-        fields = ('title', 'sub_title', 'g_api', 'g_place_id',
+        fields = ('name', 'title', 'sub_title', 'g_api', 'g_place_id',
                   'g_review_all_url', 'g_review_new_url', 'reviews')
+
+
+class TextsSerializer(serializers.ModelSerializer):
+    promo = PromoSerializer(many=False, read_only=True)
+    presentation = PresentationSerializer(many=False, read_only=True)
+    hero = HeroSerializer(many=False, read_only=True)
+    events = EventsSerializer(many=False, read_only=True)
+    contact = ContactSerializer(many=False, read_only=True)
+    review = ReviewSerializer(many=False, read_only=True)
+
+    class Meta:
+        model = Texts
+        fields = (
+            'promo',
+            'presentation',
+            'hero',
+            'events',
+            'contact',
+            'review',
+        )
+
 
