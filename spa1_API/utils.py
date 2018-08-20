@@ -39,17 +39,6 @@ class Tools(object):
         )
         print("User 'admin': Created.")
 
-    @classmethod
-    def texts(cls):
-        main.Texts.objects.create(
-            promo=main.PromoSection.objects.first(),
-            presentation=main.PresentationSection.objects.first(),
-            hero=main.HeroSection.objects.first(),
-            events=main.EventsSection.objects.first(),
-            contact=main.ContactSection.objects.first(),
-            review=main.ReviewSection.objects.first(),
-        )
-        print("Texts meta object: Created.")
 
     @classmethod
     def build(cls):
@@ -63,8 +52,6 @@ class Tools(object):
         for i in simple_models:
             i.objects.create()
             print(f"Model {i.__name__}: Created.")
-
-        cls.texts()
 
 
 class GenerateFake(object):
@@ -105,29 +92,39 @@ class GenerateFake(object):
 
     @classmethod
     def promo(cls):
-        image = gallery.Image.objects.create(
-            image='galleries/misc/action.jpg',
-            gallery=gallery.Gallery.objects.get(name='misc')
-        )
-        main.PromoSection.objects.create(image=image)
+        # image = gallery.Image.objects.create(
+        #     image='galleries/misc/action.jpg',
+        #     gallery=gallery.Gallery.objects.get(name='misc')
+        # )
+        promo_gallery = gallery.Gallery.objects.get(name='Promo')
+        image = promo_gallery.images.first()
+        # main.PromoSection.objects.create(image=image)
+        main.PromoSection.objects.create()
+        promo_gallery.limit = 1
+        promo_gallery.save()
         print("Fake Promo model: Created.")
 
     @classmethod
     def presentation(cls):
-        image = gallery.Image.objects.create(
-            image='galleries/misc/presentation.jpg',
-            gallery=gallery.Gallery.objects.get(name='misc')
-        )
-        main.PresentationSection.objects.create(image=image)
+        # image = gallery.Image.objects.create(
+        #     image='galleries/misc/presentation.jpg',
+        #     gallery=gallery.Gallery.objects.get(name='misc')
+        # )
+        presentation_gallery = gallery.Gallery.objects.get(name='Presentation')
+        image = presentation_gallery.images.first()
+        # main.PresentationSection.objects.create(image=image)
+        main.PresentationSection.objects.create()
+        presentation_gallery.limit = 1
+        presentation_gallery.save()
         print("Fake Presentation model: Created.")
 
     @classmethod
     def gallery(cls):
 
         galleries = [i for i in os.listdir(_media)]
-        print(galleries)
-        galleries.pop(galleries.index('misc'))
-        print(galleries)
+        # print(galleries)
+        # galleries.pop(galleries.index('misc'))
+        # print(galleries)
 
         count = 1
         print('Galleries:')
@@ -150,8 +147,8 @@ class GenerateFake(object):
                 )
                 count += 1
 
-        gallery.Gallery.objects.create(slug='misc', name='misc')
-        shutil.copytree(f'{_media}/misc', f'{media}/misc')
+        # gallery.Gallery.objects.create(slug='misc', name='misc')
+        # shutil.copytree(f'{_media}/misc', f'{media}/misc')
 
 
         descriptions = ['Articles', 'Galerie', 'Contact']

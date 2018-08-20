@@ -1,8 +1,6 @@
 from . import viewsets
 
 routeList = (
-    (r'texts', viewsets.TextsViewSet),
-
     (r'presentation', viewsets.PresentationViewSet),
     (r'hero', viewsets.HeroViewSet),
     (r'events', viewsets.EventsViewSet),

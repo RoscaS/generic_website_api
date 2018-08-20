@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import PresentationSection, HeroSection, EventsSection, \
-    ContactSection, MainOptions, Message, ReviewSection, PromoSection, Texts
+    ContactSection, MainOptions, Message, ReviewSection, PromoSection
 from apps.gallery.serializers import ImageSerializer
 
 
@@ -60,25 +60,4 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = ReviewSection
         fields = ('name', 'title', 'sub_title', 'g_api', 'g_place_id',
                   'g_review_all_url', 'g_review_new_url', 'reviews')
-
-
-class TextsSerializer(serializers.ModelSerializer):
-    promo = PromoSerializer(many=False, read_only=True)
-    presentation = PresentationSerializer(many=False, read_only=True)
-    hero = HeroSerializer(many=False, read_only=True)
-    events = EventsSerializer(many=False, read_only=True)
-    contact = ContactSerializer(many=False, read_only=True)
-    review = ReviewSerializer(many=False, read_only=True)
-
-    class Meta:
-        model = Texts
-        fields = (
-            'promo',
-            'presentation',
-            'hero',
-            'events',
-            'contact',
-            'review',
-        )
-
 

@@ -53,7 +53,7 @@ class PromoSection(models.Model):
     name = models.CharField(default='Promo', max_length=15)
     title = models.CharField(max_length=35, null=False, default='A title')
     text = models.CharField(max_length=800, null=False, default=sentences(4))
-    image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
+    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
 
 class PresentationSection(models.Model):
@@ -62,7 +62,7 @@ class PresentationSection(models.Model):
     sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
     text1 = models.TextField(max_length=800, default=sentences(8))
     text2 = models.TextField(max_length=800, default=sentences(9))
-    image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
+    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
 
 
 class HeroSection(models.Model):
@@ -110,13 +110,4 @@ class ReviewSection(models.Model):
         overall = d['rating']
         reviews_lst = d['reviews']
         return ({'overall': overall, 'reviews': reviews_lst})
-
-
-class Texts(models.Model):
-    promo = models.OneToOneField(PromoSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
-    presentation = models.OneToOneField(PresentationSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
-    hero = models.OneToOneField(HeroSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
-    events = models.OneToOneField(EventsSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
-    contact = models.OneToOneField(ContactSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
-    review = models.OneToOneField(ReviewSection, related_name='master', blank=True, null=True, on_delete=models.SET_NULL)
 
