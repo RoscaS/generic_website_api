@@ -11,6 +11,7 @@ from apps.articles import models as articles
 simple_models = [
     main.HeroSection,
     main.EventsSection,
+    main.ArticlesSection,
     main.ContactSection,
     main.ReviewSection,
     main.MainOptions,
@@ -60,8 +61,6 @@ class GenerateFake(object):
         names = []
         images = gallery.Gallery.objects.get(name='Articles').images.all()
         counter = images.count()
-        # images = [i for i in images_queryset]
-        # images.reverse()
 
         word = lambda: forgery_py.lorem_ipsum.word().capitalize()
         for category in [word() for i in range(4)]:
@@ -81,7 +80,7 @@ class GenerateFake(object):
                     name = forgery_py.name.company_name()
                 names.append(name)
 
-                article = articles.Item.objects.create(
+                article = articles.Article.objects.create(
                     name=name,
                     price=float(f"{randint(5, 20)}.{randint(0, 99)}"),
                     description=description[0].capitalize() + '.',
@@ -92,13 +91,7 @@ class GenerateFake(object):
 
     @classmethod
     def promo(cls):
-        # image = gallery.Image.objects.create(
-        #     image='galleries/misc/action.jpg',
-        #     gallery=gallery.Gallery.objects.get(name='misc')
-        # )
         promo_gallery = gallery.Gallery.objects.get(name='Promo')
-        image = promo_gallery.images.first()
-        # main.PromoSection.objects.create(image=image)
         main.PromoSection.objects.create()
         promo_gallery.limit = 1
         promo_gallery.save()
@@ -106,13 +99,7 @@ class GenerateFake(object):
 
     @classmethod
     def presentation(cls):
-        # image = gallery.Image.objects.create(
-        #     image='galleries/misc/presentation.jpg',
-        #     gallery=gallery.Gallery.objects.get(name='misc')
-        # )
         presentation_gallery = gallery.Gallery.objects.get(name='Presentation')
-        image = presentation_gallery.images.first()
-        # main.PresentationSection.objects.create(image=image)
         main.PresentationSection.objects.create()
         presentation_gallery.limit = 1
         presentation_gallery.save()
@@ -120,12 +107,7 @@ class GenerateFake(object):
 
     @classmethod
     def gallery(cls):
-
         galleries = [i for i in os.listdir(_media)]
-        # print(galleries)
-        # galleries.pop(galleries.index('misc'))
-        # print(galleries)
-
         count = 1
         print('Galleries:')
         for i in galleries:
@@ -146,10 +128,6 @@ class GenerateFake(object):
                     gallery=g,
                 )
                 count += 1
-
-        # gallery.Gallery.objects.create(slug='misc', name='misc')
-        # shutil.copytree(f'{_media}/misc', f'{media}/misc')
-
 
         descriptions = ['Articles', 'Galerie', 'Contact']
         parallax = gallery.Gallery.objects.get(name='Parallax')

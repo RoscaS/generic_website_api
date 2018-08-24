@@ -1,5 +1,6 @@
 import forgery_py
 import requests
+from random import randint
 
 from django.db import models
 from django.conf import settings
@@ -59,7 +60,7 @@ class PromoSection(models.Model):
 class PresentationSection(models.Model):
     name = models.CharField(default='Presentation', max_length=15)
     title = models.CharField(max_length=35, null=False, default=DATA['DESCRIPTION'] or sentences(1))
-    sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
+    sub_title = models.TextField(max_length=200, null=False, default=sentences(randint(1,3)))
     text1 = models.TextField(max_length=800, default=sentences(8))
     text2 = models.TextField(max_length=800, default=sentences(9))
     # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
@@ -78,11 +79,18 @@ class HeroSection(models.Model):
     text3 = models.CharField(max_length=200, null=False, default=sentences(2))
 
 
+class ArticlesSection(models.Model):
+    name = models.CharField(default='Articles', max_length=15)
+    header = models.CharField(max_length=30, null=False, default='Articles')
+    title = models.CharField(max_length=35, null=False, default='Articles')
+    sub_title = models.TextField(max_length=200, null=False, default=sentences(randint(1,3)))
+
+
 class EventsSection(models.Model):
     name = models.CharField(default='Events', max_length=15)
     header = models.CharField(max_length=30, null=False, default='Galerie')
     title = models.CharField(max_length=35, null=False, default='Derniers événements')
-    sub_title = models.TextField(max_length=200, null=False, default=sentences(1))
+    sub_title = models.TextField(max_length=200, null=False, default=sentences(randint(1,3)))
 
 
 class ContactSection(models.Model):

@@ -1,13 +1,13 @@
 from rest_framework import serializers
-from .models import Category, Item
+from .models import Category, Article
 from apps.gallery.serializers import ImageSerializer
 
-class ItemSerializer(serializers.ModelSerializer):
-    # image = ImageSerializer(many=True, read_only=True)
+class ArticleSerializer(serializers.ModelSerializer):
+    image = ImageSerializer(many=False, read_only=True)
     category = serializers.SlugRelatedField(slug_field='slug', queryset=Category.objects.all())
 
     class Meta:
-        model = Item
+        model = Article
         fields = (
             'id',
             'name',
@@ -20,7 +20,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 
 class CategorySerializer(serializers.ModelSerializer):
-    items = ItemSerializer(many=True, read_only=True)
+    articles = ArticleSerializer(many=True, read_only=True)
     class Meta:
         model = Category
         lookup_field = 'slug'
@@ -33,5 +33,5 @@ class CategorySerializer(serializers.ModelSerializer):
             'name',
             'description',
             'position',
-            'items',
+            'articles',
         )

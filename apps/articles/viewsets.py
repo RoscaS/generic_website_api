@@ -1,17 +1,25 @@
 from rest_framework import viewsets
 from rest_framework.parsers import MultiPartParser, FormParser
-from .models import Category, Item
-from .serializers import CategorySerializer, ItemSerializer
+from .models import Category, Article
+from .serializers import CategorySerializer, ArticleSerializer
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     lookup_field = 'slug'
-    http_method_names = ['get', 'post']
+    http_method_names = ['get', 'post', 'put']
 
 
-class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
     parser_classes = (MultiPartParser, FormParser)
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+
+    def partial_update(self, request, pk=None):
+        data = request.data
+        article = Article.objects.get(id=data['id'])
+        if article.category.name != data['category']:
+            article.category = Category.objects.get(name=data['category'])
+            article.save()
+        return super().partial_update(request, pk)

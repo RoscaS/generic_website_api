@@ -19,12 +19,13 @@ def gallery_path(instance, filename):
         return f'galleries/{instance.gallery.name}/{filename}'
     return f'galleries/{filename}'
 
-class Item(models.Model):
+
+class Article(models.Model):
     name = models.CharField(max_length=30, null=False, unique=True)
     price = models.FloatField(default=.0, null=False, validators=[MinValueValidator(.0)])
     description = models.CharField(max_length=200, null=True, blank=True)
-    category = models.ForeignKey(Category, related_name="items", on_delete=models.CASCADE)
-    image = models.OneToOneField(Image, related_name='item', blank=True, null=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, related_name="articles", on_delete=models.CASCADE)
+    image = models.OneToOneField(Image, related_name='article', blank=True, null=True, on_delete=models.SET_NULL)
     position = models.PositiveIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
 
