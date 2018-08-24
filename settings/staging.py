@@ -51,10 +51,9 @@ MIDDLEWARE = [
 # CORS
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_ALLOW_ALL = False
-# CORS_ORIGIN_WHITELIST= (
-#     'http://localhost:8080',
-#     'http://localhost:8080',
-# )
+CORS_ORIGIN_WHITELIST= (
+    'http://http://142.93.175.164:80',
+)
 
 ROOT_URLCONF = 'spa1_API.urls'
 
