@@ -3,7 +3,7 @@ from .models import Category, Article
 from apps.gallery.serializers import ImageSerializer
 
 class ArticleSerializer(serializers.ModelSerializer):
-    image = ImageSerializer(many=False, read_only=True)
+    # image = ImageSerializer(many=False, read_only=False)
     category = serializers.SlugRelatedField(slug_field='slug', queryset=Category.objects.all())
 
     class Meta:

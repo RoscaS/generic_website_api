@@ -25,7 +25,7 @@ class Article(models.Model):
     price = models.FloatField(default=.0, null=False, validators=[MinValueValidator(.0)])
     description = models.CharField(max_length=200, null=True, blank=True)
     category = models.ForeignKey(Category, related_name="articles", on_delete=models.CASCADE)
-    image = models.OneToOneField(Image, related_name='article', blank=True, null=True, on_delete=models.SET_NULL)
+    image = models.OneToOneField(Image, related_name='article', blank=False, null=False, on_delete=models.CASCADE)
     position = models.PositiveIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
 
