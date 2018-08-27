@@ -1,8 +1,7 @@
-import os, shutil, json
+import os, shutil
 from pathlib import Path
-from random import randint
 
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -18,6 +17,8 @@ class GalleryViewSet(viewsets.ModelViewSet):
     serializer_class = GallerySerializer
     lookup_field = 'slug'
     http_method_names = ['get', 'post']
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
+
 
     @action(methods=['post'], detail=False)
     def get_placeholder(self, request, pk=None):
@@ -44,6 +45,8 @@ class ImageViewSet(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
     parser_classes = (MultiPartParser, FormParser)
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
+
 
     def partial_update(self, request, pk=None):
         data = request.data

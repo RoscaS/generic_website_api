@@ -11,7 +11,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 DEBUG = False
-ALLOWED_HOSTS = ['142.93.175.164']
+ALLOWED_HOSTS = ['142.93.175.164', 'jrosk.ch']
 
 SHELL_PLUS_POST_IMPORTS = [
     ('spa1_API.utils', 'Tools'),
@@ -53,6 +53,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST= (
     '142.93.175.164',
+    'jrosk.ch',
 )
 
 ROOT_URLCONF = 'spa1_API.urls'

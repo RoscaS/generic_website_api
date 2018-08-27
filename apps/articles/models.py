@@ -8,9 +8,6 @@ class Category(models.Model):
     description = models.TextField(max_length=1000, null=True)
     position = models.PositiveIntegerField(default=0)
 
-
-    #  ATTENTION IF NAME CHANGE, VERIFIER: PAS DE DOUBLE + RENAME SLUG!!!
-
     def __str__(self):
         return f'{self.name}'
 
