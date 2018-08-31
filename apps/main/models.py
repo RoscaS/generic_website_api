@@ -38,6 +38,13 @@ class MainOptions(models.Model):
 
 
 
+class AuthTest(models.Model):
+    name = models.CharField(default='AuthTest', max_length=15)
+    title = models.CharField(max_length=35, null=False, default='AuthTest view')
+    text = models.CharField(max_length=800, null=False, default=sentences(4))
+    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
+
+
 
 class Message(models.Model):
     name = models.CharField(max_length=30, null=False)

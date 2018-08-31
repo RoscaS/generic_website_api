@@ -1,7 +1,8 @@
 import os, shutil
 from pathlib import Path
 
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.decorators import action
 from rest_framework.response import Response
@@ -17,8 +18,8 @@ class GalleryViewSet(viewsets.ModelViewSet):
     serializer_class = GallerySerializer
     lookup_field = 'slug'
     http_method_names = ['get', 'post']
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (is_admin_or_read_only, )
 
     @action(methods=['post'], detail=False)
     def get_placeholder(self, request, pk=None):
@@ -45,8 +46,8 @@ class ImageViewSet(viewsets.ModelViewSet):
     serializer_class = ImageSerializer
     parser_classes = (MultiPartParser, FormParser)
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly, )
-
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (is_admin_or_read_only, )
 
     def partial_update(self, request, pk=None):
         data = request.data
