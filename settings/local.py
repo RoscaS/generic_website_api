@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.gallery',
     'apps.main',
     'apps.articles',
+    'apps.time',
 ]
 
 MIDDLEWARE = [
@@ -187,11 +188,10 @@ if AUTH0_DOMAIN:
 def jwt_get_username_from_payload_handler(user):
     email = user['http://jrosk.ch_EMAIL']
     scope = user['scope']
-    print(f'\n\nUser: {email}\nScope: {scope}')
     if 'full_access' in user['scope']:
-        print('=====has full_access=====\n\n')
+        # print('\n=====has full_access=====\n')
         return "admin"
-    print('=====has NOT full_access=====\n\n')
+    # print('\n=====has NOT full_access=====\n')
     # return False
 
 

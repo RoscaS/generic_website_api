@@ -35,6 +35,7 @@ class MainOptions(models.Model):
     instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
     linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
     snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
+    mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
 
 
 

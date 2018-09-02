@@ -27,7 +27,7 @@ WEBSITE_DATA = {
     "LOGO_PATH"                : "",
 
     # fromagerie reussilles
-
+    "MAPBOX": "",
     "GOOGLE_API": "AIzaSyAKrXyewXcDPgvG66yHBmm3vFZDoJDDS1M",
     "GOOGLE_PLACE_ID": "ChIJPwMEJQwCjkcRkmHo22dFFpo",
     "GOOGLE_PLACE": 'https://goo.gl/scVfzx',

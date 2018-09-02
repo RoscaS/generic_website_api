@@ -10,7 +10,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
     serializer_class = CategorySerializer
     lookup_field = 'slug'
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
-    # permission_classes = (is_admin_or_read_only, )
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
@@ -19,7 +18,6 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     parser_classes = (MultiPartParser, FormParser)
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
-    # permission_classes = (is_admin_or_read_only, )
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def partial_update(self, request, pk=None):

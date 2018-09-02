@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from apps.gallery import models as gallery
 from apps.main import models as main
 from apps.articles import models as articles
-
+from apps.time import models as time
 
 simple_models = [
     main.HeroSection,
@@ -24,6 +24,7 @@ _media = f'{settings.BASE_DIR}/_media/galleries'
 def sentences(n):
     return forgery_py.lorem_ipsum.sentences(n).capitalize()
 
+
 class Tools(object):
     @classmethod
     def reset_media(cls):
@@ -40,7 +41,6 @@ class Tools(object):
         )
         print("User 'admin': Created.")
 
-
     @classmethod
     def build(cls):
         cls.admin()
@@ -49,6 +49,7 @@ class Tools(object):
         GenerateFake.articles()
         GenerateFake.presentation()
         GenerateFake.promo()
+        GenerateFake.time()
 
         for i in simple_models:
             i.objects.create()
@@ -56,6 +57,21 @@ class Tools(object):
 
 
 class GenerateFake(object):
+
+    @classmethod
+    def time(cls):
+        WEEKDAYS = [
+            "lundi",
+            "mardi",
+            "mercredi",
+            "jeudi",
+            "vendredi",
+            "samedi",
+            "dimanche",
+        ]
+        for day in WEEKDAYS:
+            time.Day.objects.create(name=day, slug=day)
+
     @classmethod
     def articles(cls):
         names = []
@@ -122,7 +138,7 @@ class GenerateFake(object):
                 shutil.copy(f'{_media}/{i}/{j}', f'{media}/{name}')
                 print(name)
                 gallery.Image.objects.create(
-                    name = name,
+                    name=name,
                     image=f'galleries/{name}',
                     description=sentences(1),
                     gallery=g,
@@ -145,5 +161,3 @@ class GenerateFake(object):
         stock = gallery.Gallery.objects.get(name='Stock')
         stock.limit = 32
         stock.save()
-
-

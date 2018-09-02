@@ -19,10 +19,10 @@ class GalleryViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
     http_method_names = ['get', 'post']
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    # permission_classes = (is_admin_or_read_only, )
 
     @action(methods=['post'], detail=False)
     def get_placeholder(self, request, pk=None):
+        print('\n\nGET PLACE HOLDER')
         gallery = Gallery.objects.get(name=request.data['gallery'])
         dest = Path(os.path.join(media, 'galleries', 'placeholders'))
         if not Path.exists(dest):
@@ -37,6 +37,9 @@ class GalleryViewSet(viewsets.ModelViewSet):
             name=name
         )
         img.save()
+        print(Image.objects.last().name)
+        print(Image.objects.last().image.path)
+        print('\n\n')
         serialized = ImageSerializer(img)
         return Response(serialized.data)
 
@@ -47,7 +50,6 @@ class ImageViewSet(viewsets.ModelViewSet):
     parser_classes = (MultiPartParser, FormParser)
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    # permission_classes = (is_admin_or_read_only, )
 
     def partial_update(self, request, pk=None):
         data = request.data
