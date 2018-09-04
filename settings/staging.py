@@ -146,16 +146,12 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
 
 
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST= (
-    '142.93.175.164',
-    'jrosk.ch',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST= (
+#     '104.248.29.118',
+#     'jrosk.ch',
+# )
 
-
-CORS_ORIGIN_WHITELIST = (
-    'jrosk.ch',
-)
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
