@@ -18,16 +18,39 @@ def words(n):
 
 
 class MainOptions(models.Model):
-    project_name = models.CharField(max_length=15, null=False, default=DATA['PROJECT_NAME'] or '', help_text='Nom du projet.')
-    name = models.CharField(max_length=15, null=False, default=DATA['NAME'] or '', help_text='Nom du commerce.')
-    name_add = models.CharField(max_length=9, null=False, default=DATA['NAME_ADD'] or '', help_text='type de commerce.')
-    description = models.CharField(max_length=30, null=False, default=DATA['DESCRIPTION'] or '', help_text='Très brève description.')
-    oppening = models.CharField(max_length=4, null=False, default=DATA['OUVERTURE'] or '', help_text='Année d\'ouverture.')
-    adress = models.CharField(max_length=30, null=False, default=DATA['ADRESSE'] or '', help_text='numéro + rue (12 rue des champs)')
-    city = models.CharField(max_length=30, null=True, default=DATA['VILLE'] or '', blank=True)
-    post_code = models.CharField(max_length=4, null=True, default=DATA['CODE_POSTAL'] or '', blank=True)
+    # project_name = models.CharField(max_length=15, null=False, default=DATA['PROJECT_NAME'] or '')
+    # name = models.CharField(max_length=15, null=False, default=DATA['NAME'] or '')
+    # name_add = models.CharField(max_length=9, null=False, default=DATA['NAME_ADD'] or '')
+    # description = models.CharField(max_length=30, null=False, default=DATA['DESCRIPTION'] or '')
+    # oppening = models.CharField(max_length=4, null=False, default=DATA['OUVERTURE'] or '')
+    # adress = models.CharField(max_length=30, null=False, default=DATA['ADRESSE'] or '')
+    # city = models.CharField(max_length=30, null=True, default=DATA['VILLE'] or '', blank=True)
+    # post_code = models.CharField(max_length=4, null=True, default=DATA['CODE_POSTAL'] or '', blank=True)
+    # phone = models.CharField(max_length=30, null=True, default=DATA['TELEPHONE'] or '', blank=True)
+    # mail = models.EmailField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
+    # facebook = models.CharField(max_length=1000, null=True, default=DATA['FACEBOOK'] or '', blank=True)
+    # tripadvisor = models.CharField(max_length=1000, null=True, default=DATA['TRIPADVISOR'] or '', blank=True)
+    # google = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE'] or '', blank=True)
+    # twitter = models.CharField(max_length=1000, null=True, default=DATA['TWITTER'] or '', blank=True)
+    # instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
+    # linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
+    # snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
+    mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
+
+
+
+class SiteInformations(models.Model):
+    name = models.CharField(max_length=25, null=False, default=DATA['NAME'] or '')
+    name_add = models.CharField(max_length=15, null=False, default=DATA['NAME_ADD'] or '')
+    oppening = models.CharField(max_length=4, null=False, default=DATA['OUVERTURE'] or '')
+    adress = models.CharField(max_length=30, null=False, default=DATA['ADRESSE'] or '')
+    city = models.CharField(max_length=30, null=False, default=DATA['VILLE'] or '')
+    post_code = models.CharField(max_length=8, null=False, default=DATA['CODE_POSTAL'] or '')
     phone = models.CharField(max_length=30, null=True, default=DATA['TELEPHONE'] or '', blank=True)
     mail = models.EmailField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
+
+
+class SiteContact(models.Model):
     facebook = models.CharField(max_length=1000, null=True, default=DATA['FACEBOOK'] or '', blank=True)
     tripadvisor = models.CharField(max_length=1000, null=True, default=DATA['TRIPADVISOR'] or '', blank=True)
     google = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE'] or '', blank=True)
@@ -35,8 +58,6 @@ class MainOptions(models.Model):
     instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
     linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
     snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
-    mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
-
 
 
 class AuthTest(models.Model):
@@ -107,7 +128,7 @@ class ContactSection(models.Model):
     title = models.CharField(max_length=35, null=False, default='Où nous trouver')
     sub_title = models.TextField(max_length=200, null=False, default="N'hésitez pas à nous contacter...")
     sub_title2 = models.TextField(max_length=200, null=False, default='... en nous laissant un message...')
-    sub_title3 = models.TextField(max_length=200, null=False, default='... ou en passant directement nous voir.')
+    sub_title3 = models.TextField(max_length=200, null=False, default='... ou en passant directement nous voir:')
 
 
 class ReviewSection(models.Model):

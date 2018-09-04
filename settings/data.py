@@ -1,3 +1,6 @@
+
+name = 'MySite.'
+
 WEBSITE_DATA = {
     "ORDER_CONF_URL_TIMESTAMP" : 2,
 
@@ -5,8 +8,11 @@ WEBSITE_DATA = {
     "CAROUSEL_GALLERY_LIMIT"   : 8,
     "PARALLAX_GALLERY_LIMIT"   : 3,
     "ARTICLES_GALLERY_LIMIT"   : 100,
+
+
+
     "PROJECT_NAME"             : "PersonnalWebsiteForall",
-    "NAME"                     : "MySite.",
+    "NAME"                     : name,
     "NAME_ADD"                 : "Forall",
     "DESCRIPTION"              : "Hello world!",
     "VILLE"                    : "LeMonde",
@@ -15,16 +21,18 @@ WEBSITE_DATA = {
     "OUVERTURE"                : "2016",
 
 
+
     "TELEPHONE"                : "032-725-08-58",
     "EMAIL"                    : "jrosk.ad@gmail.com",
-    "FACEBOOK"                 : "https://www.facebook.com/mcflysdinerneuchatel",
-    "GOOGLE"                   : "https://www.google.ch/maps/place/McFly's+Diner+Neuch%C3%A2tel/@46.9922131,6.9248096,15z/data=!4m2!3m1!1s0x0:0x399ca68c2bcc87de?sa=X&ved=0ahUKEwiZ6cPbroPZAhWMOhQKHdR_Cz8Q_BIIggEwCg",
-    "TWITTER"                  : "https://twitter.com/",
-    "INSTAGRAM"                : "https://www.instagram.com/?hl=en",
-    "LINKEDIN"                 : "https://www.linkedin.com/",
-    "SNAPCHAT"                 : "https://www.snapchat.com/",
-    "TRIPADVISOR"              : "https://www.tripadvisor.com/Restaurant_Review-g188066-d12069550-Reviews-McFly_s_Diner-Neuchatel.html",
-    "LOGO_PATH"                : "",
+    # "FACEBOOK"                 : "https://www.facebook.com/mcflysdinerneuchatel",
+    "FACEBOOK"                 : "#",
+    "GOOGLE"                   : f"https://www.google.ch/maps/place/{name}",
+    "TWITTER"                  : "#",
+    "INSTAGRAM"                : "#",
+    "LINKEDIN"                 : "#",
+    "SNAPCHAT"                 : "#",
+    "TRIPADVISOR"              : "#",
+    "LOGO_PATH"                : "#",
 
     # fromagerie reussilles
     "MAPBOX": "",

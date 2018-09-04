@@ -15,6 +15,8 @@ simple_models = [
     main.ContactSection,
     main.ReviewSection,
     main.MainOptions,
+    main.SiteInformations,
+    main.SiteContact,
 ]
 
 media = f'{settings.BASE_DIR}/media/galleries'

@@ -12,6 +12,8 @@ from .models import (
     PromoSection,
     ArticlesSection,
     AuthTest,
+    SiteInformations,
+    SiteContact,
 )
 from .serializers import (
     PresentationSerializer,
@@ -24,8 +26,9 @@ from .serializers import (
     PromoSerializer,
     ArticlesSerializer,
     AuthTestSerializer,
+    SiteInformationsSerializer,
+    SiteContactSerializer
 )
-
 
 # http_method_names = ['get', 'post', 'put', 'patch', 'delete']
 
@@ -40,6 +43,20 @@ class MainOptionsViewSet(viewsets.ModelViewSet):
     queryset = MainOptions.objects.all()
     serializer_class = MainOptionsSerializer
     http_method_names = ['get', 'patch']
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class SiteInformationsViewSet(viewsets.ModelViewSet):
+    queryset = SiteInformations.objects.all()
+    serializer_class = SiteInformationsSerializer
+    http_method_names = ['get', 'put']
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class SiteContactViewSet(viewsets.ModelViewSet):
+    queryset = SiteContact.objects.all()
+    serializer_class = SiteContactSerializer
+    http_method_names = ['get', 'put']
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
