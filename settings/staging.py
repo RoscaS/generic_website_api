@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'apps.gallery',
     'apps.main',
     'apps.articles',
+    'apps.time',
+
 ]
 
 MIDDLEWARE = [

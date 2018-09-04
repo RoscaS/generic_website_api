@@ -2,33 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d72ed9c-386a-47d3-90e2-d591fd9c7a84" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/articles/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/articles/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/gallery/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/gallery/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/main/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/main/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/time/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/time/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0001.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0001.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0002.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0002.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0003.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0003.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0004.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0004.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0030.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0030.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0031.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0031.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0032.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0032.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0033.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0033.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0034.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0034.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0035.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0035.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0036.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0036.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0037.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0037.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0038.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0038.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0039.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0039.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0040.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0040.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0041.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0041.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0042.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0042.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0043.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0043.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0044.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0044.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0045.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/media/galleries/0045.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0046.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/0047.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/galleries/01.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/settings/staging.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings/staging.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -173,7 +146,7 @@
                   <entry file="file://$PROJECT_DIR$/apps/main/models.py">
                     <provider selected="true" editor-type-id="text-editor">
                       <state relative-caret-position="897">
-                        <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+                        <caret line="39" selection-start-line="39" selection-end-line="39" />
                         <folding>
                           <element signature="e#0#17#0" expanded="true" />
                         </folding>
@@ -228,8 +201,8 @@
                 <file pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/settings/staging.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="1266">
-                        <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+                      <state relative-caret-position="548">
+                        <caret line="151" column="26" lean-forward="true" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
                         <folding>
                           <element signature="e#0#15#0" expanded="true" />
                         </folding>
@@ -323,14 +296,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="6687" />
+          <entry key="py" value="6688" />
           <entry key="txt" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="39" />
-          <entry key="Python" value="6687" />
+          <entry key="Python" value="6688" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -341,8 +314,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/settings/local.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-228">
-              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+            <state relative-caret-position="692">
+              <caret line="46" selection-start-line="46" selection-end-line="47" />
+              <folding>
+                <element signature="e#0#27#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -863,7 +839,7 @@
     <entry file="file://$PROJECT_DIR$/apps/main/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="897">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#0#17#0" expanded="true" />
           </folding>
@@ -872,15 +848,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings/local.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        <state relative-caret-position="692">
+          <caret line="46" selection-start-line="46" selection-end-line="47" />
+          <folding>
+            <element signature="e#0#27#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/settings/staging.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1266">
-          <caret line="153" lean-forward="true" selection-start-line="153" selection-end-line="153" />
+        <state relative-caret-position="548">
+          <caret line="151" column="26" lean-forward="true" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
