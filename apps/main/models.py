@@ -81,7 +81,7 @@ class Message(models.Model):
 
 class PromoSection(models.Model):
     name = models.CharField(default='Promo', max_length=15)
-    title = models.CharField(max_length=35, null=False, default='A title')
+    title = models.CharField(max_length=35, null=False, default=sentences(1))
     text = models.CharField(max_length=800, null=False, default=sentences(4))
     # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
