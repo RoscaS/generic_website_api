@@ -35,17 +35,7 @@ class Tools(object):
         os.mkdir(f"{media}/_temp")
 
     @classmethod
-    def admin(cls):
-        User.objects.create_superuser(
-            username='admin',
-            email='jrosk.ad@gmail.com',
-            password='solsolsol'
-        )
-        print("User 'admin': Created.")
-
-    @classmethod
     def build(cls):
-        cls.admin()
         cls.reset_media()
         GenerateFake.gallery()
         GenerateFake.articles()
