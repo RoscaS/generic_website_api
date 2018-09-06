@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from apps.gallery.serializers import ImageSerializer
 from .models import PresentationSection, HeroSection, EventsSection, \
-    ContactSection, MainOptions, Message, ReviewSection, PromoSection, \
+    ContactSection, SiteOptions, Message, ReviewSection, PromoSection, \
     ArticlesSection, AuthTest, SiteInformations, SiteContact
 
 
@@ -11,10 +11,11 @@ class AuthTestSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'text')
 
 
-class MainOptionsSerializer(serializers.ModelSerializer):
+class SiteOptionsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MainOptions
-        fields = '__all__'
+        model = SiteOptions
+        # fields = '__all__'
+        exclude = ('id',)
 
 
 class SiteInformationsSerializer(serializers.ModelSerializer):

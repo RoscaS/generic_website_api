@@ -17,7 +17,7 @@ def words(n):
     return w if n <= 2 else w + '.'
 
 
-class MainOptions(models.Model):
+class SiteOptions(models.Model):
     # project_name = models.CharField(max_length=15, null=False, default=DATA['PROJECT_NAME'] or '')
     # name = models.CharField(max_length=15, null=False, default=DATA['NAME'] or '')
     # name_add = models.CharField(max_length=9, null=False, default=DATA['NAME_ADD'] or '')
@@ -36,6 +36,9 @@ class MainOptions(models.Model):
     # linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
     # snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
     mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
+    carousel_auto_scroll = models.BooleanField(default=False)
+    carousel_auto_scroll_speed = models.IntegerField(default=5000, null=False)
+
 
 
 
@@ -48,6 +51,7 @@ class SiteInformations(models.Model):
     post_code = models.CharField(max_length=8, null=False, default=DATA['CODE_POSTAL'] or '')
     phone = models.CharField(max_length=30, null=True, default=DATA['TELEPHONE'] or '', blank=True)
     mail = models.EmailField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
+
 
 
 class SiteContact(models.Model):

@@ -6,7 +6,7 @@ from .models import (
     HeroSection,
     EventsSection,
     ContactSection,
-    MainOptions,
+    SiteOptions,
     Message,
     ReviewSection,
     PromoSection,
@@ -20,7 +20,7 @@ from .serializers import (
     HeroSerializer,
     EventsSerializer,
     ContactSerializer,
-    MainOptionsSerializer,
+    SiteOptionsSerializer,
     MessageSerializer,
     ReviewSerializer,
     PromoSerializer,
@@ -39,10 +39,10 @@ class AuthTestViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
-class MainOptionsViewSet(viewsets.ModelViewSet):
-    queryset = MainOptions.objects.all()
-    serializer_class = MainOptionsSerializer
-    http_method_names = ['get', 'patch']
+class SiteOptionsViewSet(viewsets.ModelViewSet):
+    queryset = SiteOptions.objects.all()
+    serializer_class = SiteOptionsSerializer
+    http_method_names = ['get', 'put']
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 

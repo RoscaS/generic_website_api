@@ -14,7 +14,7 @@ simple_models = [
     main.ArticlesSection,
     main.ContactSection,
     main.ReviewSection,
-    main.MainOptions,
+    main.SiteOptions,
     main.SiteInformations,
     main.SiteContact,
 ]
