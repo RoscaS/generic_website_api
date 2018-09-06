@@ -18,28 +18,9 @@ def words(n):
 
 
 class SiteOptions(models.Model):
-    # project_name = models.CharField(max_length=15, null=False, default=DATA['PROJECT_NAME'] or '')
-    # name = models.CharField(max_length=15, null=False, default=DATA['NAME'] or '')
-    # name_add = models.CharField(max_length=9, null=False, default=DATA['NAME_ADD'] or '')
-    # description = models.CharField(max_length=30, null=False, default=DATA['DESCRIPTION'] or '')
-    # oppening = models.CharField(max_length=4, null=False, default=DATA['OUVERTURE'] or '')
-    # adress = models.CharField(max_length=30, null=False, default=DATA['ADRESSE'] or '')
-    # city = models.CharField(max_length=30, null=True, default=DATA['VILLE'] or '', blank=True)
-    # post_code = models.CharField(max_length=4, null=True, default=DATA['CODE_POSTAL'] or '', blank=True)
-    # phone = models.CharField(max_length=30, null=True, default=DATA['TELEPHONE'] or '', blank=True)
-    # mail = models.EmailField(max_length=30, null=True, default=DATA['EMAIL'] or '', blank=True)
-    # facebook = models.CharField(max_length=1000, null=True, default=DATA['FACEBOOK'] or '', blank=True)
-    # tripadvisor = models.CharField(max_length=1000, null=True, default=DATA['TRIPADVISOR'] or '', blank=True)
-    # google = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE'] or '', blank=True)
-    # twitter = models.CharField(max_length=1000, null=True, default=DATA['TWITTER'] or '', blank=True)
-    # instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
-    # linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
-    # snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
     mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
     carousel_auto_scroll = models.BooleanField(default=False)
     carousel_auto_scroll_speed = models.IntegerField(default=5000, null=False)
-
-
 
 
 class SiteInformations(models.Model):
