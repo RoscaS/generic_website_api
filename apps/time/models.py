@@ -1,8 +1,6 @@
-import datetime
 from django.db import models
 
 class Day(models.Model):
-    # name = models.CharField(max_length=10, null=False, unique=True)
     name = models.CharField(max_length=10, unique=True, blank=False, null=False)
     slug = models.CharField(max_length=100, unique=True, blank=False, null=False)
     # Slots

@@ -42,7 +42,6 @@ class PromoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PromoSection
-        # fields = ('id', 'title', 'text', 'image')
         exclude = ('id',)
 
 
