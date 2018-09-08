@@ -49,7 +49,7 @@ netwrq.log*
 
 
 # Migrations
-# /website/*/migrations/0*
+# /apps/*/migrations/0*
 
 # Media
 website/media/
