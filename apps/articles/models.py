@@ -5,7 +5,7 @@ from apps.gallery.models import Image
 class Category(models.Model):
     slug = models.CharField(max_length=30, unique=True)
     name = models.CharField(max_length=30, unique=True)
-    description = models.TextField(max_length=1000, null=True)
+    description = models.TextField(max_length=1000, null=True, blank=True)
     position = models.PositiveIntegerField(default=0)
 
     def __str__(self):
