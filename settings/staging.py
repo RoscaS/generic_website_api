@@ -16,7 +16,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 DEBUG = False
-ALLOWED_HOSTS = ['jrosk.ch']
+ALLOWED_HOSTS = ['.jrosk.ch']
 
 SHELL_PLUS_POST_IMPORTS = [
     ('spa1_API.utils', 'Tools'),
