@@ -11,8 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ['HTTPS'] = "on"
-os.environ['wsgi.url_scheme'] = "https"
+# os.environ['HTTPS'] = "on"
+# os.environ['wsgi.url_scheme'] = "https"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "spa1_API.settings")
 
 application = get_wsgi_application()

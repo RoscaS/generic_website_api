@@ -4,6 +4,7 @@
     <list default="true" id="3d72ed9c-386a-47d3-90e2-d591fd9c7a84" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings/staging.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings/staging.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa1_API/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/spa1_API/wsgi.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -143,8 +144,8 @@
                 <file pinned="false" current-in-tab="true">
                   <entry file="file://$PROJECT_DIR$/settings/staging.py">
                     <provider selected="true" editor-type-id="text-editor">
-                      <state relative-caret-position="498">
-                        <caret line="153" column="5" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+                      <state relative-caret-position="186">
+                        <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
                         <folding>
                           <element signature="e#0#15#0" expanded="true" />
                         </folding>
@@ -335,8 +336,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spa1_API/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="234">
+              <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding>
                 <element signature="e#0#222#1" expanded="true" />
               </folding>
@@ -602,7 +603,21 @@
       <option name="project" value="LOCAL" />
       <updated>1536456842236</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="test ssl">
+      <created>1536456933676</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1536456933676</updated>
+    </task>
+    <task id="LOCAL-00011" summary="test ssl">
+      <created>1536457116628</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1536457116628</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -966,8 +981,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spa1_API/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="234">
+          <caret line="15" column="30" lean-forward="true" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding>
             <element signature="e#0#222#1" expanded="true" />
           </folding>
@@ -976,8 +991,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/settings/staging.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="153" column="5" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+        <state relative-caret-position="186">
+          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
