@@ -10,7 +10,7 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 import os
 
 from django.core.wsgi import get_wsgi_application
-os.environ['HTTPS'] = "on"
+# os.environ['HTTPS'] = "on"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "spa1_API.settings")
 
 application = get_wsgi_application()

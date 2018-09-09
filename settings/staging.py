@@ -75,7 +75,7 @@ TEMPLATES = [
     },
 ]
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 WSGI_APPLICATION = 'spa1_API.wsgi.application'
 
