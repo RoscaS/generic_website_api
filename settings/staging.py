@@ -148,11 +148,11 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST= (
-#     '104.248.29.118',
-#     'jrosk.ch',
-# )
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_WHITELIST= (
+    '104.248.29.118',
+    'jrosk.ch',
+)
 
 
 REST_FRAMEWORK = {
