@@ -16,7 +16,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 
 DEBUG = False
-ALLOWED_HOSTS = ['jrosk.ch']
+ALLOWED_HOSTS = ['.jrosk.ch']
 
 SHELL_PLUS_POST_IMPORTS = [
     ('spa1_API.utils', 'Tools'),
@@ -74,8 +74,6 @@ TEMPLATES = [
         },
     },
 ]
-
-
 
 WSGI_APPLICATION = 'spa1_API.wsgi.application'
 
@@ -150,10 +148,11 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
 
 
-# CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST= (
-    'jrosk.ch',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST= (
+#     '104.248.29.118',
+#     'jrosk.ch',
+# )
 
 
 REST_FRAMEWORK = {
