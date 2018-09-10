@@ -1,6 +1,5 @@
 import os, shutil, forgery_py
 from random import randint, seed
-from decouple import config
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -14,7 +13,6 @@ simple_models = [
     main.EventsSection,
     main.ArticlesSection,
     main.ContactSection,
-    # main.ReviewSection,
     main.SiteOptions,
     main.SiteInformations,
     main.SiteContact,
@@ -40,7 +38,7 @@ class Tools(object):
         User.objects.create_superuser(
             username='admin',
             email='jrosk.ad@gmail.com',
-            password=config.ADMIN
+            password=settings.ADMIN
         )
         print("User 'admin': Created.")
 

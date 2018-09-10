@@ -16,6 +16,7 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'GenericWebsiteFrontend')
 
 # SECURITY WARNING: keep the secret key used in production secret!
+ADMIN = config('ADMIN')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
