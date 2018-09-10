@@ -1,4 +1,5 @@
 import json, os
+from pathlib import Path
 from decouple import config
 
 from six.moves.urllib import request
@@ -10,6 +11,8 @@ from .data import WEBSITE_DATA
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(BASE_DIR, 'apps')
+FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
+
 
 
 SECRET_KEY = config('SECRET_KEY')
@@ -43,7 +46,7 @@ INSTALLED_APPS = [
     'apps.main',
     'apps.articles',
     'apps.time',
-
+    'apps.tools',
 ]
 
 MIDDLEWARE = [
