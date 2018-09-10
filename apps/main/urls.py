@@ -7,7 +7,7 @@ routeList = (
     (r'article', viewsets.ArticlesViewSet),
     (r'events', viewsets.EventsViewSet),
     (r'contact', viewsets.ContactViewSet),
-    (r'review', viewsets.ReviewViewSet),
+    # (r'review', viewsets.ReviewViewSet),
     (r'promo', viewsets.PromoViewSet),
     (r'message', viewsets.MessageViewSet),
     (r'siteInfo', viewsets.SiteInformationsViewSet),

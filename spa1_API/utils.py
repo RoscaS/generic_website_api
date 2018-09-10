@@ -13,7 +13,7 @@ simple_models = [
     main.EventsSection,
     main.ArticlesSection,
     main.ContactSection,
-    main.ReviewSection,
+    # main.ReviewSection,
     main.SiteOptions,
     main.SiteInformations,
     main.SiteContact,

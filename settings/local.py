@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from decouple import config
 import datetime
 
@@ -11,6 +13,7 @@ from cryptography.hazmat.backends import default_backend
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(BASE_DIR, 'apps')
+FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'GenericWebsiteFrontend')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY')
@@ -45,6 +48,7 @@ INSTALLED_APPS = [
     'apps.main',
     'apps.articles',
     'apps.time',
+    'apps.tools',
 ]
 
 MIDDLEWARE = [

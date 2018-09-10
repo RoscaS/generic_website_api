@@ -146,7 +146,6 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
 
 
-# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST= (
@@ -157,9 +156,6 @@ CORS_ORIGIN_WHITELIST= (
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        # 'rest_framework_auth0.authentication.Auth0JSONWebTokenAuthentication',
-        # 'rest_framework.permissions.IsAuthenticated',
-        # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
 
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (

@@ -40,9 +40,3 @@ class GallerySerializer(serializers.ModelSerializer):
             'limit'
         )
 
-
-'''
-curl \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTM1NTgzMjAwLCJqdGkiOiI0ZDBkMTgyMjMzOWQ0ODZiOTAxNDAyZWNmNjVkNjQ5NSIsInVzZXJfaWQiOjF9.Fr8YfR_MbZ7ERFbgvB_05G9fXdVue4-6bN4Numd6AIU" \
-  http://localhost:8000/api/authtest/
-'''

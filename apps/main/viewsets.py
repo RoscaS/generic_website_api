@@ -8,7 +8,6 @@ from .models import (
     ContactSection,
     SiteOptions,
     Message,
-    ReviewSection,
     PromoSection,
     ArticlesSection,
     AuthTest,
@@ -22,7 +21,6 @@ from .serializers import (
     ContactSerializer,
     SiteOptionsSerializer,
     MessageSerializer,
-    ReviewSerializer,
     PromoSerializer,
     ArticlesSerializer,
     AuthTestSerializer,
@@ -109,8 +107,8 @@ class ContactViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
-class ReviewViewSet(viewsets.ModelViewSet):
-    queryset = ReviewSection.objects.all()
-    serializer_class = ReviewSerializer
-    http_method_names = ['get', 'put']
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+# class ReviewViewSet(viewsets.ModelViewSet):
+#     queryset = ReviewSection.objects.all()
+#     serializer_class = ReviewSerializer
+#     http_method_names = ['get', 'put']
+#     permission_classes = (IsAuthenticatedOrReadOnly,)

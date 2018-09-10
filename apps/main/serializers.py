@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from apps.gallery.serializers import ImageSerializer
 from .models import PresentationSection, HeroSection, EventsSection, \
-    ContactSection, SiteOptions, Message, ReviewSection, PromoSection, \
+    ContactSection, SiteOptions, Message, PromoSection, \
     ArticlesSection, AuthTest, SiteInformations, SiteContact
 
 
@@ -82,9 +82,9 @@ class ContactSerializer(serializers.ModelSerializer):
         exclude = ('id', 'header')
 
 
-class ReviewSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ReviewSection
-        fields = ('name', 'title', 'sub_title', 'g_api', 'g_place_id',
-                  'g_review_all_url', 'g_review_new_url', 'reviews')
+# class ReviewSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = ReviewSection
+#         fields = ('name', 'title', 'sub_title', 'g_api', 'g_place_id',
+#                   'g_review_all_url', 'g_review_new_url', 'reviews')
 

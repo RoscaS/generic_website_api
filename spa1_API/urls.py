@@ -8,6 +8,8 @@ from rest_framework.schemas import get_schema_view
 
 from rest_framework_jwt.views import obtain_jwt_token
 
+from apps.tools.views import ControlView
+
 from .routes import build_routes
 
 
@@ -16,6 +18,8 @@ schema_view = get_schema_view(title='Pastebin API')
 router = build_routes()
 
 urlpatterns = [
+    path(route='control', view=ControlView.as_view()),
+
     # path(route='', view=RedirectView.as_view(url='api/', permanent=False)),
     path(route='', view=include(router.urls)),
 
