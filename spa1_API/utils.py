@@ -1,5 +1,6 @@
 import os, shutil, forgery_py
 from random import randint, seed
+from decouple import config
 
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -35,8 +36,18 @@ class Tools(object):
         os.mkdir(f"{media}/_temp")
 
     @classmethod
+    def admin(cls):
+        User.objects.create_superuser(
+            username='admin',
+            email='jrosk.ad@gmail.com',
+            password=config.ADMIN
+        )
+        print("User 'admin': Created.")
+
+    @classmethod
     def build(cls):
         cls.reset_media()
+        cls.admin()
         GenerateFake.gallery()
         GenerateFake.articles()
         GenerateFake.presentation()
