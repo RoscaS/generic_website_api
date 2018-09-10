@@ -185,13 +185,8 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    email = user['http://jrosk.ch_EMAIL']
-    scope = user['scope']
     if 'full_access' in user['scope']:
-        # print('\n=====has full_access=====\n')
         return "admin"
-    # print('\n=====has NOT full_access=====\n')
-    # return False
 
 
 JWT_AUTH = {
