@@ -16,7 +16,9 @@ FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
 ADMIN_MAIL = config('ADMIN_MAIL')
 ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
+
 AUTH0_DOMAIN = config('AUTH0_DOMAIN')
+AUTH_PREFIX = config('AUTH_PREFIX')
 AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 
 DEBUG = True
@@ -150,7 +152,9 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST= (
     '104.248.29.118',
+    
     'jrosk.ch',
+    'jura-coiffure.jorsk.ch',
 )
 
 
@@ -179,7 +183,7 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    if user[f"{AUTH_API_IDENTIFIER}_EMAIL"] == ADMIN_MAIL:
+    if user[f"{AUTH_PREFIX}_EMAIL"] == ADMIN_MAIL:
         return "admin"
 
 
