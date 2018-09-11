@@ -17,4 +17,4 @@ class GitPullView(APIView):
         # pull = repo.git.pull()
         # return Response(pull)
         print('\n\n WORKING \n\n')
-        return Response('OK')
+        return Response(request.META['HTTP_POULE'])
