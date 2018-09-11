@@ -1,7 +1,5 @@
 from pathlib import Path
-
 from decouple import config
-import datetime
 
 from .data import WEBSITE_DATA
 
@@ -19,6 +17,8 @@ FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'GenericWebsiteFrontend')
 ADMIN_MAIL = config('ADMIN_MAIL')
 ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
+AUTH0_DOMAIN = config('AUTH0_DOMAIN')
+AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -173,8 +173,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-AUTH0_DOMAIN = 'jrosk.eu.auth0.com'
-API_IDENTIFIER = 'http://jrosk.ch:8000'
 PUBLIC_KEY = None
 JWT_ISSUER = None
 
@@ -199,7 +197,7 @@ JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER': jwt_get_username_from_payload_handler,
     'JWT_PUBLIC_KEY': PUBLIC_KEY,
     'JWT_ALGORITHM': 'RS256',
-    'JWT_AUDIENCE': API_IDENTIFIER,
+    'JWT_AUDIENCE': AUTH_API_IDENTIFIER,
     'JWT_ISSUER': JWT_ISSUER,
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }

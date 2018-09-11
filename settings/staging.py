@@ -16,6 +16,8 @@ FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
 ADMIN_MAIL = config('ADMIN_MAIL')
 ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
+AUTH0_DOMAIN = config('AUTH0_DOMAIN')
+AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 
 DEBUG = False
 ALLOWED_HOSTS = ['.jrosk.ch']
@@ -124,17 +126,15 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Email
 
+
+# Email
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.mailgun.org')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
@@ -145,13 +145,12 @@ EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 DEFAULT_FROM_EMAIL = f"{WEBSITE_DATA['NAME'].strip('.')} <noreply@jrosk.pw>"
 EMAIL_SUBJECT_PREFIX = f"{WEBSITE_DATA['PROJECT_NAME']}: "
 EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
-
-
+API_IDENTIFIER = config('API_IDENTIFIER')
 
 
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST= (
-    '104.248.29.118',
+    # '104.248.29.118',
     'jrosk.ch',
 )
 
@@ -166,9 +165,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-
-AUTH0_DOMAIN = 'jrosk.eu.auth0.com'
-API_IDENTIFIER = 'http://jrosk.ch:8000'
 PUBLIC_KEY = None
 JWT_ISSUER = None
 
@@ -193,7 +189,7 @@ JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER': jwt_get_username_from_payload_handler,
     'JWT_PUBLIC_KEY': PUBLIC_KEY,
     'JWT_ALGORITHM': 'RS256',
-    'JWT_AUDIENCE': API_IDENTIFIER,
+    'JWT_AUDIENCE': AUTH_API_IDENTIFIER,
     'JWT_ISSUER': JWT_ISSUER,
     'JWT_AUTH_HEADER_PREFIX': 'Bearer',
 }
