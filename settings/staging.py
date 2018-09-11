@@ -149,8 +149,8 @@ API_IDENTIFIER = config('API_IDENTIFIER')
 
 
 # CORS_ORIGIN_ALLOW_ALL = True
+#     '104.248.29.118',
 CORS_ORIGIN_WHITELIST= (
-    # '104.248.29.118',
     'jrosk.ch',
 )
 
