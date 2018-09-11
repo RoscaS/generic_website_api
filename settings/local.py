@@ -191,6 +191,10 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
+    with open('log.txt', 'w') as file:
+        for k, v in user.items():
+            file.write(f"{k}: {v}\n")
+        file.write('\n\n')
     if user[f"{AUTH_PREFIX}_EMAIL"] == ADMIN_MAIL:
         return "admin"
 
