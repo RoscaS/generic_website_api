@@ -1,13 +1,13 @@
 import json, os
-from pathlib import Path
 from decouple import config
+from pathlib import Path
 
 from six.moves.urllib import request
 from cryptography.x509 import load_pem_x509_certificate
 from cryptography.hazmat.backends import default_backend
 
-
 from .data import WEBSITE_DATA
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(BASE_DIR, 'apps')
@@ -19,7 +19,8 @@ SECRET_KEY = config('SECRET_KEY')
 AUTH0_DOMAIN = config('AUTH0_DOMAIN')
 AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 
-DEBUG = False
+DEBUG = True
+
 ALLOWED_HOSTS = ['.jrosk.ch']
 
 SHELL_PLUS_POST_IMPORTS = [
