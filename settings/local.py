@@ -21,6 +21,7 @@ SECRET_KEY = config('SECRET_KEY')
 AUTH0_DOMAIN = config('AUTH0_DOMAIN')
 AUTH_PREFIX = config('AUTH_PREFIX')
 AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
+GIT_PULL_CHECK = config('CHECK')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

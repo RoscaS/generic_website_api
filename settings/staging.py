@@ -20,8 +20,9 @@ SECRET_KEY = config('SECRET_KEY')
 AUTH0_DOMAIN = config('AUTH0_DOMAIN')
 AUTH_PREFIX = config('AUTH_PREFIX')
 AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
+GIT_PULL_CHECK = config('CHECK')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['.jrosk.ch']
 
@@ -152,7 +153,7 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 # CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST= (
     '104.248.29.118',
-    
+
     'jrosk.ch',
     'jura-coiffure.jorsk.ch',
 )
