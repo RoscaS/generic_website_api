@@ -184,7 +184,8 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    if 'full_access' in user['scope']:
+    email = user['https://jrosk.ch_EMAIL']
+    if email == ADMIN_MAIL:
         return "admin"
 
 

@@ -166,7 +166,6 @@ REST_FRAMEWORK = {
         # 'rest_framework_auth0.authentication.Auth0JSONWebTokenAuthentication',
         # 'rest_framework.permissions.IsAuthenticated',
         # 'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
