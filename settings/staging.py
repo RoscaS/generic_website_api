@@ -155,7 +155,7 @@ CORS_ORIGIN_WHITELIST= (
     '104.248.29.118',
 
     'jrosk.ch',
-    'jura-coiffure.jorsk.ch',
+    'jura-coiffure.jrosk.ch',
 )
 
 
