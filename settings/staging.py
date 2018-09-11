@@ -179,7 +179,7 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    email = user['https://jrosk.ch_EMAIL']
+    email = user['http://jrosk.ch:8000_EMAIL']
     if email == ADMIN_MAIL:
         return "admin"
 
