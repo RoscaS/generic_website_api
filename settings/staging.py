@@ -14,6 +14,7 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
 
 ADMIN = config('ADMIN')
+CHECK = config('CHECK')
 SECRET_KEY = config('SECRET_KEY')
 
 
