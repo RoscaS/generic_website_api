@@ -13,10 +13,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
 
-ADMIN = config('ADMIN')
-CHECK = config('CHECK')
+ADMIN_MAIL = config('ADMIN_MAIL')
+ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
-
 
 DEBUG = False
 ALLOWED_HOSTS = ['.jrosk.ch']

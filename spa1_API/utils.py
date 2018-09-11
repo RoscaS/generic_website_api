@@ -37,8 +37,8 @@ class Tools(object):
     def admin(cls):
         User.objects.create_superuser(
             username='admin',
-            email='jrosk.ad@gmail.com',
-            password=settings.ADMIN
+            email=settings.ADMIN_MAIL,
+            password=settings.ADMIN_PW
         )
         print("User 'admin': Created.")
 

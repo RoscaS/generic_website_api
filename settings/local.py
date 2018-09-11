@@ -16,7 +16,8 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'GenericWebsiteFrontend')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-ADMIN = config('ADMIN')
+ADMIN_MAIL = config('ADMIN_MAIL')
+ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -190,13 +191,9 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    email = user['http://jrosk.ch_EMAIL']
-    scope = user['scope']
-    if 'full_access' in user['scope']:
-        # print('\n=====has full_access=====\n')
+    email = user['https://jrosk.ch_EMAIL']
+    if email == ADMIN_MAIL:
         return "admin"
-    # print('\n=====has NOT full_access=====\n')
-    # return False
 
 
 JWT_AUTH = {

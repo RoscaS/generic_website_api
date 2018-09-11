@@ -20,7 +20,6 @@ router = build_routes()
 urlpatterns = [
     path(route='git-pull', view=GitPullView.as_view()),
 
-    # path(route='', view=RedirectView.as_view(url='api/', permanent=False)),
     path(route='', view=include(router.urls)),
 
     path(route='api-auth', view=include('rest_framework.urls')),
