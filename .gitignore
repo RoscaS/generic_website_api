@@ -55,7 +55,7 @@ netwrq.log*
 /apps/*/migrations/0*
 
 # Media
-website/media/
+# website/media/
 
 
 # manage (pour eviter de rename local <-> staging)
