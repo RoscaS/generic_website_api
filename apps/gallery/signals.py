@@ -11,7 +11,6 @@ def delete_physical_image(instance, **kwargs):
     except:
         pass
 
-
 @receiver(post_save, sender=Image)
 def set_position(instance, **kwargs):
     if kwargs['created']:
