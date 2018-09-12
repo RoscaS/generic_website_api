@@ -189,11 +189,9 @@ if AUTH0_DOMAIN:
     PUBLIC_KEY = certificate.public_key()
     JWT_ISSUER = 'https://' + AUTH0_DOMAIN + '/'
 
-
 def jwt_get_username_from_payload_handler(user):
     if user[f"{AUTH_PREFIX}_EMAIL"] == ADMIN_MAIL:
         return "admin"
-
 
 JWT_AUTH = {
     'JWT_PAYLOAD_GET_USERNAME_HANDLER': jwt_get_username_from_payload_handler,
