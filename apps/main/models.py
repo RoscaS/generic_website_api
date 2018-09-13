@@ -5,8 +5,6 @@ from random import randint
 from django.db import models
 from django.conf import settings
 
-from apps.gallery.models import Image
-
 DATA = settings.WEBSITE_DATA
 
 def sentences(n):
@@ -49,7 +47,6 @@ class AuthTest(models.Model):
     name = models.CharField(default='AuthTest', max_length=15)
     title = models.CharField(max_length=35, null=False, default='AuthTest view')
     text = models.CharField(max_length=800, null=False, default=sentences(4))
-    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
 
 
@@ -68,7 +65,6 @@ class PromoSection(models.Model):
     name = models.CharField(default='Promo', max_length=15)
     title = models.CharField(max_length=35, null=False, default=sentences(1))
     text = models.CharField(max_length=800, null=False, default=sentences(4))
-    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE, null=True)
 
 
 class PresentationSection(models.Model):
@@ -77,7 +73,6 @@ class PresentationSection(models.Model):
     sub_title = models.TextField(max_length=200, null=False, default=sentences(randint(1,3)))
     text1 = models.TextField(max_length=800, default=sentences(8))
     text2 = models.TextField(max_length=800, default=sentences(9))
-    # image = models.ForeignKey(Image, related_name=None, on_delete=models.CASCADE)
 
 
 class HeroSection(models.Model):
@@ -115,21 +110,4 @@ class ContactSection(models.Model):
     sub_title2 = models.TextField(max_length=200, null=False, default='... en nous laissant un message...')
     sub_title3 = models.TextField(max_length=200, null=False, default='... ou en passant directement nous voir:')
 
-
-# class ReviewSection(models.Model):
-#     name = models.CharField(default='Review', max_length=15)
-#     title = models.CharField(max_length=35, null=False, default='Google Review')
-#     sub_title = models.CharField(max_length=200, null=False, default='Ce que disent les gens de nous')
-#     g_api = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE_API'] or '', blank=True)
-#     g_place_id = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE_PLACE_ID'] or '', blank=True)
-#     g_review_all_url = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE_REVIEW_LINK_ALL'] or '', blank=True)
-#     g_review_new_url = models.CharField(max_length=1000, null=True, default=DATA['GOOGLE_REVIEW_LINK_WRITE'] or '', blank=True)
-#
-#     @property
-#     def reviews(self):
-#         response = requests.get(DATA['GOOGLE_PLACE'])
-#         d = response.json()['result']
-#         overall = d['rating']
-#         reviews_lst = d['reviews']
-#         return ({'overall': overall, 'reviews': reviews_lst})
 

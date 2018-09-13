@@ -3,6 +3,7 @@ from apps.gallery import urls as gallery_urls
 from apps.main import urls as main_urls
 from apps.articles import urls as articles_urls
 from apps.time import urls as time_urls
+from apps.section import urls as sections_urls
 
 
 def build_routes():
@@ -11,6 +12,7 @@ def build_routes():
         main_urls.routeList,
         articles_urls.routeList,
         time_urls.routeList,
+        sections_urls.routeList,
     ]
     router = routers.DefaultRouter()
     for routeList in routeLists:

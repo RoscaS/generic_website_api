@@ -17,31 +17,13 @@ class GalleryViewSet(viewsets.ModelViewSet):
     queryset = Gallery.objects.all()
     serializer_class = GallerySerializer
     lookup_field = 'slug'
-    http_method_names = ['get', 'post']
+    http_method_names = ['get', 'post', 'delete']
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @action(methods=['post'], detail=False)
     def get_placeholder(self, request, pk=None):
-        print('\n\nGET PLACE HOLDER')
         gallery = Gallery.objects.get(name=request.data['gallery'])
-        dest = Path(os.path.join(media, 'galleries', 'placeholders'))
-        if not Path.exists(dest):
-            os.mkdir(dest)
-
-        name = f'placeholder_{request.data["gallery"]}.jpg'
-        file = os.path.join(dest, name)
-        shutil.copy(f'{static}/placeholder.jpg', file)
-        img = Image.objects.create(
-            image=f'galleries/placeholders/{name}',
-            gallery=gallery,
-            name=name
-        )
-        img.save()
-        print(Image.objects.last().name)
-        print(Image.objects.last().image.path)
-        print('\n\n')
-        serialized = ImageSerializer(img)
-        return Response(serialized.data)
+        return Response(ImageSerializer(gallery.set_placeholder()).data)
 
 
 class ImageViewSet(viewsets.ModelViewSet):
@@ -55,7 +37,6 @@ class ImageViewSet(viewsets.ModelViewSet):
         data = request.data
         image = Image.objects.get(id=data['id'])
         if image.gallery.name != data['gallery']:
-            print(f"FRONT\tid: {data['id']}\tgal: {data['gallery']}\nBACK\tid: {image.id}\tgal: {image.gallery.name}\n\n")
             image.gallery = Gallery.objects.get(name=data['gallery'])
             image.save()
         return super().partial_update(request, pk)

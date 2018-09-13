@@ -7,6 +7,7 @@ from apps.gallery import models as gallery
 from apps.main import models as main
 from apps.articles import models as articles
 from apps.time import models as time
+from apps.section import models as sections
 
 simple_models = [
     main.HeroSection,
@@ -51,6 +52,7 @@ class Tools(object):
         GenerateFake.presentation()
         GenerateFake.promo()
         GenerateFake.time()
+        GenerateFake.sections()
 
         for i in simple_models:
             i.objects.create()
@@ -105,6 +107,29 @@ class GenerateFake(object):
                     image=images[counter]
                 )
                 article.save()
+
+    @classmethod
+    def sections(cls):
+        for i in range(3):
+            name = forgery_py.name.company_name().capitalize()
+            g = gallery.Gallery.objects.create(
+                slug=name,
+                name=name,
+                description='',
+                limit=1
+            )
+            g.set_placeholder()
+            sections.Section.objects.create(
+                gallery=g,
+                slug=name,
+                name=name,
+                title=name,
+                sub_title=sentences(randint(2, 4)),
+                text1=sentences(randint(5, 10)),
+                text2=sentences(randint(5, 10)),
+            )
+
+            print("Fake Section: Created")
 
     @classmethod
     def promo(cls):

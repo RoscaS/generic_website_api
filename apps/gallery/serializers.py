@@ -2,7 +2,6 @@ from rest_framework import serializers
 from .models import Gallery, Image
 from apps.articles.serializers import ArticleSerializer
 
-
 class ImageSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(max_length=None, use_url=True)
     gallery = serializers.SlugRelatedField(slug_field='slug', queryset=Gallery.objects.all())

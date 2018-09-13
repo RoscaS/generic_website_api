@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'apps.articles',
     'apps.time',
     'apps.tools',
+    'apps.section',
 ]
 
 MIDDLEWARE = [
