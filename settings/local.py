@@ -159,11 +159,11 @@ EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
 
 # CORS
-# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:8080',
+# )
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
