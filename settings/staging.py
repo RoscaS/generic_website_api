@@ -151,6 +151,7 @@ DEFAULT_FROM_EMAIL = f"{WEBSITE_DATA['NAME'].strip('.')} <noreply@jrosk.pw>"
 EMAIL_SUBJECT_PREFIX = f"{WEBSITE_DATA['PROJECT_NAME']}: "
 EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
+
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST= (
 #     '104.248.29.118',
