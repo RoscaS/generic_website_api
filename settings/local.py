@@ -24,7 +24,6 @@ AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 GIT_PULL_CHECK = config('GIT_PULL_CHECK')
 GOOGLE_RECAPTCHA = config('GOOGLE_RECAPTCHA')
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
