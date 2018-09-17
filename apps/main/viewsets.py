@@ -13,7 +13,6 @@ from .models import (
     Message,
     PromoSection,
     ArticlesSection,
-    AuthTest,
     SiteInformations,
     SiteContact,
 )
@@ -26,19 +25,11 @@ from .serializers import (
     MessageSerializer,
     PromoSerializer,
     ArticlesSerializer,
-    AuthTestSerializer,
     SiteInformationsSerializer,
     SiteContactSerializer
 )
 
 # http_method_names = ['get', 'post', 'put', 'patch', 'delete']
-
-class AuthTestViewSet(viewsets.ModelViewSet):
-    queryset = AuthTest.objects.all()
-    serializer_class = AuthTestSerializer
-    http_method_names = ['get', 'post', 'put', 'delete']
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
 
 class SiteOptionsViewSet(viewsets.ModelViewSet):
     queryset = SiteOptions.objects.all()

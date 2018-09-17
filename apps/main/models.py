@@ -15,7 +15,6 @@ def words(n):
 
 
 class SiteOptions(models.Model):
-    # mapBox = models.CharField(max_length=1000, null=True, default=DATA['MAPBOX'] or '', blank=True)
     carousel_auto_scroll = models.BooleanField(default=False)
     carousel_auto_scroll_speed = models.IntegerField(default=5000, null=False)
 
@@ -42,13 +41,6 @@ class SiteContact(models.Model):
     instagram = models.CharField(max_length=1000, null=True, default=DATA['INSTAGRAM'] or '', blank=True)
     linkedin = models.CharField(max_length=1000, null=True, default=DATA['LINKEDIN'] or '', blank=True)
     snapchat = models.CharField(max_length=1000, null=True, default=DATA['SNAPCHAT'] or '', blank=True)
-
-
-class AuthTest(models.Model):
-    name = models.CharField(default='AuthTest', max_length=15)
-    title = models.CharField(max_length=35, null=False, default='AuthTest view')
-    text = models.CharField(max_length=800, null=False, default=sentences(4))
-
 
 
 class Message(models.Model):

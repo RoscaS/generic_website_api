@@ -1,5 +1,5 @@
 
-name = 'MySite.'
+name = 'MySite'
 
 
 WEBSITE_DATA = {
@@ -10,8 +10,6 @@ WEBSITE_DATA = {
     "PARALLAX_GALLERY_LIMIT"   : 3,
     "ARTICLES_GALLERY_LIMIT"   : 100,
 
-
-
     "PROJECT_NAME"             : "PersonnalWebsiteForall",
     "NAME"                     : name,
     "NAME_ADD"                 : "Forall",
@@ -20,8 +18,6 @@ WEBSITE_DATA = {
     "CODE_POSTAL"              : "2000",
     "ADRESSE"                  : "awesome street",
     "OUVERTURE"                : "2016",
-
-
 
     "TELEPHONE"                : "032-725-08-58",
     "EMAIL"                    : "jrosk.ad@gmail.com",
@@ -33,12 +29,4 @@ WEBSITE_DATA = {
     "SNAPCHAT"                 : "#",
     "TRIPADVISOR"              : "#",
     "LOGO_PATH"                : "#",
-
-    # fromagerie reussilles
-    "MAPBOX": "",
-    # "GOOGLE_API": "AIzaSyAKrXyewXcDPgvG66yHBmm3vFZDoJDDS1M",
-    # "GOOGLE_PLACE_ID": "ChIJPwMEJQwCjkcRkmHo22dFFpo",
-    # "GOOGLE_PLACE": 'https://goo.gl/scVfzx',
-    # "GOOGLE_REVIEW_LINK_ALL": "https://goo.gl/9XWfVB",
-    # "GOOGLE_REVIEW_LINK_WRITE": "https://goo.gl/owSQ5r",
 }

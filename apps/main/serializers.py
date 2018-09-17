@@ -2,13 +2,7 @@ from rest_framework import serializers
 from apps.gallery.serializers import ImageSerializer
 from .models import PresentationSection, HeroSection, EventsSection, \
     ContactSection, SiteOptions, Message, PromoSection, \
-    ArticlesSection, AuthTest, SiteInformations, SiteContact
-
-
-class AuthTestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = AuthTest
-        fields = ('id', 'title', 'text')
+    ArticlesSection, SiteInformations, SiteContact
 
 
 class SiteOptionsSerializer(serializers.ModelSerializer):
