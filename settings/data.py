@@ -25,7 +25,6 @@ WEBSITE_DATA = {
 
     "TELEPHONE"                : "032-725-08-58",
     "EMAIL"                    : "jrosk.ad@gmail.com",
-    # "FACEBOOK"                 : "https://www.facebook.com/mcflysdinerneuchatel",
     "FACEBOOK"                 : "#",
     "GOOGLE"                   : f"https://www.google.ch/maps/place/{name}",
     "TWITTER"                  : "#",

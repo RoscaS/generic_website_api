@@ -1,5 +1,4 @@
 import forgery_py
-import requests
 from random import randint
 
 from django.db import models
