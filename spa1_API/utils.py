@@ -30,7 +30,12 @@ def sentences(n):
 class Tools(object):
     @classmethod
     def reset_media(cls):
-        shutil.rmtree(media)
+        print("Removing old media folder")
+        try:
+            shutil.rmtree(media)
+        except Exception as e:
+            print(f"{media} does not exist, skipping")
+        print(f"Creating {media}")
         os.mkdir(media)
         os.mkdir(f"{media}/_temp")
 

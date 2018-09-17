@@ -2,13 +2,12 @@ from django.conf.urls import url
 from django.urls import path, include
 from django.views.static import serve
 from django.conf import settings
-from django.views.generic.base import RedirectView
 from rest_framework.documentation import include_docs_urls
 from rest_framework.schemas import get_schema_view
 
 from rest_framework_jwt.views import obtain_jwt_token
 
-from apps.tools.views import GitPullView
+from apps.tools.views import GitPullView, Grecaptcha
 
 from .routes import build_routes
 
@@ -19,6 +18,7 @@ router = build_routes()
 
 urlpatterns = [
     path(route='git-pull', view=GitPullView.as_view()),
+    path(route='grecaptcha', view=Grecaptcha.as_view()),
 
     path(route='', view=include(router.urls)),
 

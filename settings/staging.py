@@ -8,7 +8,6 @@ from cryptography.hazmat.backends import default_backend
 
 from .data import WEBSITE_DATA
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
@@ -23,13 +22,12 @@ AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 GIT_PULL_CHECK = config('GIT_PULL_CHECK')
 
 DEBUG = False
-
+# PAS OUBLIER DE CHANGER f() server!!!
 ALLOWED_HOSTS = ['.jrosk.ch']
 
 SHELL_PLUS_POST_IMPORTS = [
     ('spa1_API.utils', 'Tools'),
 ]
-
 
 # Application definition
 
@@ -86,7 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'spa1_API.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
@@ -97,25 +94,27 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': 'django.contrib.auth.password_validation'
+                '.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -130,16 +129,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 # Email
-EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
+EMAIL_BACKEND = config('EMAIL_BACKEND',
+                       default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.mailgun.org')
 EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
 EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='postmaster@mg.jrosk.pw')
@@ -150,16 +148,12 @@ DEFAULT_FROM_EMAIL = f"{WEBSITE_DATA['NAME'].strip('.')} <noreply@jrosk.pw>"
 EMAIL_SUBJECT_PREFIX = f"{WEBSITE_DATA['PROJECT_NAME']}: "
 EMAIL_SEND_TO = ['jrosk.ad@gmail.com']
 
-
-# CORS_ORIGIN_ALLOW_ALL = True
-# CORS_ORIGIN_WHITELIST= (
-#     '104.248.29.118',
-#     'jrosk.ch',
-#     'www.jrosk.ch',
-#     'jura-coiffure.jrosk.ch',
-#     'www.jura-coiffure.jrosk.ch',
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     '178.128.204.247'
+#     'jura-coiffure.ch',
+#     'www.jura-coiffure.ch',
 # )
-
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
@@ -167,7 +161,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',  # allows secondary way
+        'rest_framework.authentication.SessionAuthentication',
+    # allows secondary way
     ),
 }
 

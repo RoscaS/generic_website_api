@@ -23,10 +23,3 @@ class SectionViewSet(viewsets.ModelViewSet):
         request.data['slug'] = name
         return super().update(request, *args, **kwargs)
 
-# class GenericSectionViewSet(viewsets.ModelViewSet):
-#     queryset = GenericSection.objects.all()
-#     serializer_class = GenericSectionSerializer
-#     lookup_field = 'slug'
-#     http_method_names = ['get', 'post', 'delete']
-#     permission_classes = (IsAuthenticatedOrReadOnly,)
-

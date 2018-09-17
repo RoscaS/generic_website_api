@@ -1,3 +1,5 @@
 from django.db import models
+from apps.gallery.models import Gallery
 
-# Create your models here.
+class GrecaptchaToken(models.Model):
+    token = models.CharField(max_length=2048)

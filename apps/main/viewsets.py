@@ -1,5 +1,8 @@
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework import viewsets, status
+
+from apps.tools.models import GrecaptchaToken
 
 from .models import (
     PresentationSection,
@@ -61,8 +64,17 @@ class SiteContactViewSet(viewsets.ModelViewSet):
 class MessageViewSet(viewsets.ModelViewSet):
     queryset = Message.objects.all()
     serializer_class = MessageSerializer
-    http_method_names = ['get', 'post', 'patch']
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    http_method_names = ['post']
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def create(self, request, *args, **kwargs):
+        verification = GrecaptchaToken.objects.filter(token=request.data['token'])
+        if (verification):
+            print('OK')
+            verification.delete()
+            return super().create(request, *args, **kwargs)
+
+        return Response(status=status.HTTP_401_UNAUTHORIZED)
 
 
 class PromoViewSet(viewsets.ModelViewSet):

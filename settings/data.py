@@ -37,9 +37,9 @@ WEBSITE_DATA = {
 
     # fromagerie reussilles
     "MAPBOX": "",
-    "GOOGLE_API": "AIzaSyAKrXyewXcDPgvG66yHBmm3vFZDoJDDS1M",
-    "GOOGLE_PLACE_ID": "ChIJPwMEJQwCjkcRkmHo22dFFpo",
-    "GOOGLE_PLACE": 'https://goo.gl/scVfzx',
-    "GOOGLE_REVIEW_LINK_ALL": "https://goo.gl/9XWfVB",
-    "GOOGLE_REVIEW_LINK_WRITE": "https://goo.gl/owSQ5r",
+    # "GOOGLE_API": "AIzaSyAKrXyewXcDPgvG66yHBmm3vFZDoJDDS1M",
+    # "GOOGLE_PLACE_ID": "ChIJPwMEJQwCjkcRkmHo22dFFpo",
+    # "GOOGLE_PLACE": 'https://goo.gl/scVfzx',
+    # "GOOGLE_REVIEW_LINK_ALL": "https://goo.gl/9XWfVB",
+    # "GOOGLE_REVIEW_LINK_WRITE": "https://goo.gl/owSQ5r",
 }
