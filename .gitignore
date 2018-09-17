@@ -60,3 +60,5 @@ website/media/
 
 # manage (pour eviter de rename local <-> staging)
 manage.py
+
+staging.py
