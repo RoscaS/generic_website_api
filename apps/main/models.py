@@ -57,7 +57,7 @@ class Message(models.Model):
 class PromoSection(models.Model):
     name = models.CharField(default='Promo', max_length=15)
     title = models.CharField(max_length=35, null=False, default=sentences(1))
-    text = models.CharField(max_length=800, null=False, default=sentences(4))
+    text = models.CharField(max_length=200, null=False, default=sentences(2))
     label = models.CharField(max_length=18, default='Action spéciale !')
 
 
@@ -65,8 +65,8 @@ class PresentationSection(models.Model):
     name = models.CharField(default='Presentation', max_length=15)
     title = models.CharField(max_length=35, null=False, default=DATA['DESCRIPTION'] or sentences(1))
     sub_title = models.TextField(max_length=200, null=False, default=sentences(randint(1,3)))
-    text1 = models.TextField(max_length=800, default=sentences(8))
-    text2 = models.TextField(max_length=800, default=sentences(9))
+    text1 = models.TextField(max_length=400, default=sentences(8))
+    text2 = models.TextField(max_length=400, default=sentences(9))
 
 
 class HeroSection(models.Model):
@@ -77,9 +77,9 @@ class HeroSection(models.Model):
     title1 = models.CharField(max_length=20, null=False, default=words(2))
     title2 = models.CharField(max_length=20, null=False, default=words(2))
     title3 = models.CharField(max_length=20, null=False, default=words(2))
-    text1 = models.CharField(max_length=200, null=False, default=sentences(2))
-    text2 = models.CharField(max_length=200, null=False, default=sentences(2))
-    text3 = models.CharField(max_length=200, null=False, default=sentences(2))
+    text1 = models.CharField(max_length=200, null=False, default=sentences(1))
+    text2 = models.CharField(max_length=200, null=False, default=sentences(1))
+    text3 = models.CharField(max_length=200, null=False, default=sentences(1))
 
 
 class ArticlesSection(models.Model):

@@ -13,6 +13,7 @@ APPS_DIR = os.path.join(BASE_DIR, 'apps')
 FRONTEND_DIR = os.path.join(Path(BASE_DIR).parent, 'frontend')
 
 ADMIN_MAIL = config('ADMIN_MAIL')
+SUPERADMIN_MAIL = config('SUPERADMIN_MAIL')
 ADMIN_PW = config('ADMIN_PW')
 SECRET_KEY = config('SECRET_KEY')
 
@@ -21,7 +22,6 @@ AUTH_PREFIX = config('AUTH_PREFIX')
 AUTH_API_IDENTIFIER = config('AUTH_API_IDENTIFIER')
 GIT_PULL_CHECK = config('GIT_PULL_CHECK')
 GOOGLE_RECAPTCHA = config('GOOGLE_RECAPTCHA')
-
 
 DEBUG = False
 # PAS OUBLIER DE CHANGER f() server!!!
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
 
     'apps.gallery',
     'apps.main',
-    'apps.articles',
+    'apps.articlesz',
     'apps.time',
     'apps.tools',
     'apps.section',
@@ -164,7 +164,7 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    # allows secondary way
+        # allows secondary way
     ),
 }
 
@@ -183,8 +183,11 @@ if AUTH0_DOMAIN:
 
 
 def jwt_get_username_from_payload_handler(user):
-    if user[f"{AUTH_PREFIX}_EMAIL"] == ADMIN_MAIL:
+    user_email = user[f"AUTH_PREFIX_EMAIL"]
+    if user_email in [ADMIN_MAIL, SUPERADMIN_MAIL]:
         return "admin"
+    # if user[f"{AUTH_PREFIX}_EMAIL"] == ADMIN_MAIL:
+    #     return "admin"
 
 
 JWT_AUTH = {

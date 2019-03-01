@@ -30,3 +30,5 @@ WEBSITE_DATA = {
     "TRIPADVISOR"              : "#",
     "LOGO_PATH"                : "#",
 }
+
+
