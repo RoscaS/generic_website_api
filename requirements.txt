@@ -12,7 +12,7 @@ django-utils==0.0.2
 djangorestframework==3.8.2
 djangorestframework-jwt==1.11.0
 docopt==0.6.2
-ecdsa==0.13
+ecdsa==0.13.3
 ForgeryPy==0.1
 future==0.16.0
 gitdb2==2.0.4
