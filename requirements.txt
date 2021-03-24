@@ -35,7 +35,7 @@ python-jose==3.0.0
 pytz==2018.4
 requests==2.19.1
 rest-framework-auth0==0.4.6
-rsa==3.4.2
+rsa==4.1
 six==1.11.0
 smmap2==2.0.4
 uritemplate==3.0.0
